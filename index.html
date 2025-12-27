@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة ذاكر التعليمية | تطبيق ذاكر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Header Section (Logo & Name) -->
+    <header class="top-header">
+        <div class="logo-stack">
+            <img src="assets/images/logo.png" alt="Zakir Logo" class="main-logo">
+            <h1 class="header-title">منصة ذاكر التعليمية</h1>
+            <p class="header-subtitle">تطبيق ذاكر</p>
+        </div>
+    </header>
+
+    <!-- App Preview Section -->
+    <section class="app-preview">
+        <!-- Top Wave (White into Red) -->
+        <div class="waves-container top-wave"></div>
+
+        <div class="phone-mockup-wrapper">
+            <div class="phone-frame-container">
+                <img src="assets/images/iphone_frame.png" alt="iPhone 16 Mockup" class="phone-frame">
+
+                <!-- Slideshow Display (Inside the screen) -->
+                <div class="screen-content">
+                    <div class="slideshow-track" id="slideshowTrack">
+                        <div class="slide"><img src="assets/slides/slide1.jpg" alt="Zakir App"></div>
+                        <div class="slide"><img src="assets/slides/slide2.jpg" alt="Zakir App"></div>
+                        <div class="slide"><img src="assets/slides/slide3.jpg" alt="Zakir App"></div>
+                        <div class="slide"><img src="assets/slides/slide4.jpg" alt="Zakir App"></div>
+                        <div class="slide"><img src="assets/slides/slide5.jpg" alt="Zakir App"></div>
+                        <div class="slide"><img src="assets/slides/slide6.jpg" alt="Zakir App"></div>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button class="nav-arrow prev" id="prevSlide" aria-label="Previous Slide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <button class="nav-arrow next" id="nextSlide" aria-label="Next Slide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom Wave (Red into Pink) -->
+        <div class="waves-container bottom-wave"></div>
+    </section>
+
+    <!-- Info & Download Section -->
+    <main class="info-section">
+        <div class="container text-center">
+            <h2 class="description-text">
+                تطبيق ذاكر : تطبيق ينظم وقت الطلاب ويحسن من جودة فعالية مذاكرتهم
+            </h2>
+            <p class="cta-subtitle">حمل التطبيق الان وابدا المذاكرة</p>
+
+            <a href="#" class="download-button">
+                إضغط هنا لتحميل التطبيق
+            </a>
+        </div>
+    </main>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

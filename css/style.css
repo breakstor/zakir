@@ -1,0 +1,269 @@
+:root {
+    --primary-red: #A95C4F;
+    /* Precise terracotta from user image */
+    --light-pink: #FFF5F5;
+    --text-dark: #222;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--light-pink);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    direction: rtl;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* 1. Header */
+.top-header {
+    background-color: #FFF;
+    padding: 2.5rem 0 0;
+    position: relative;
+    z-index: 20;
+}
+
+.logo-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.main-logo {
+    height: 42px;
+}
+
+.header-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.header-subtitle {
+    font-size: 1.4rem;
+    color: #555;
+}
+
+/* Wavy Dividers - Enhanced "Cloudy" look */
+.waves-container {
+    width: 100%;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 30;
+}
+
+.top-wave {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23FFF' d='M0,0 L1440,0 L1440,30 C1380,80 1320,80 1260,30 C1180,-30 1100,-30 1020,30 C940,90 860,90 780,30 C700,-30 620,-30 540,30 C460,90 380,90 300,30 C220,-30 140,-30 60,30 C30,45 0,55 0,55 Z'%3E%3C/path%3E%3C/svg%3E");
+    margin-bottom: 2rem;
+}
+
+.bottom-wave {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23FFF5F5' d='M0,120 L1440,120 L1440,90 C1380,40 1320,40 1260,90 C1180,150 1100,150 1020,90 C940,30 860,30 780,90 C700,150 620,150 540,90 C460,30 380,30 300,90 C220,150 140,150 60,90 C30,75 0,65 0,65 Z'%3E%3C/path%3E%3C/svg%3E");
+    margin-top: 2rem;
+}
+
+/* 2. App Preview Section */
+.app-preview {
+    background-color: var(--primary-red);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+}
+
+/* Phone Mockup */
+.phone-mockup-wrapper {
+    position: relative;
+    width: 320px;
+    margin: 0 auto;
+    z-index: 10;
+    filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.4));
+}
+
+.phone-frame-container {
+    position: relative;
+    width: 100%;
+}
+
+.phone-frame {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 25;
+    pointer-events: none;
+}
+
+.screen-content {
+    position: absolute;
+    /* Precise dimensions for the phone frame */
+    top: 11px;
+    left: 13px;
+    width: 294px;
+    height: 688px;
+    background-color: #FFF;
+    border-radius: 40px;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.slideshow-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background: #FFF;
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: -55px;
+    /* Crop the browser bar */
+}
+
+/* Arrows */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #444;
+    width: 45px;
+    height: 45px;
+    z-index: 40;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.nav-arrow:hover {
+    transform: translateY(-50%) scale(1.2);
+}
+
+.nav-arrow.prev {
+    left: 15px;
+}
+
+.nav-arrow.next {
+    right: 15px;
+}
+
+.nav-arrow svg {
+    width: 40px;
+    height: 40px;
+    stroke: #000;
+    stroke-width: 2.5;
+}
+
+/* 3. Info & Footer */
+.info-section {
+    padding: 3rem 0 6rem;
+    background-color: var(--light-pink);
+}
+
+.description-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #222;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+    line-height: 1.4;
+}
+
+.cta-subtitle {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.download-button {
+    display: inline-block;
+    background-color: #D35151;
+    /* Button red from image */
+    color: #FFF;
+    text-decoration: none;
+    padding: 1.1rem 4rem;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.download-button:hover {
+    background-color: #C14343;
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .phone-mockup-wrapper {
+        width: 280px;
+    }
+
+    .header-title {
+        font-size: 1.4rem;
+    }
+
+    .description-text {
+        font-size: 1.25rem;
+    }
+
+    .download-button {
+        font-size: 1.2rem;
+        width: 90%;
+    }
+
+    .screen-content {
+        top: 9.5px;
+        left: 11px;
+        width: 257px;
+        height: 602px;
+        border-radius: 35px;
+    }
+
+    .slide img {
+        margin-top: -48px;
+    }
+
+    .nav-arrow {
+        width: 35px;
+        height: 35px;
+    }
+
+    .nav-arrow svg {
+        width: 30px;
+        height: 30px;
+    }
+}
