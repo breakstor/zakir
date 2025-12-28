@@ -1,4 +1,4 @@
-/* 1. الإعدادات والخط */
+/* 1. التأسيس والخط */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
 
 :root {
@@ -16,9 +16,9 @@
 
 body { background: white; overflow-x: hidden; line-height: 1.6; }
 
-/* 2. الهيدر */
+/* 2. الهيدر المنسق (استعادة التصميم المستقر) */
 .main-header {
-    height: 60px; /* تقليل الارتفاع */
+    height: 70px;
     display: flex;
     align-items: center;
     position: fixed;
@@ -29,42 +29,66 @@ body { background: white; overflow-x: hidden; line-height: 1.6; }
     border-bottom: 1px solid #eee;
 }
 
-.header-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.logo { font-size: 22px; font-weight: 900; color: var(--primary-red); }
+.header-flex { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
 
-/* 3. القسم الرئيسي (الهيرو) - تصغير العناوين */
+.logo { 
+    font-size: 26px; 
+    font-weight: 900; 
+    color: var(--primary-red); 
+    text-decoration: none;
+}
+
+.btn-primary { 
+    background: var(--primary-red); 
+    color: white; 
+    padding: 10px 25px; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+/* 3. قسم الهيرو (العنوان بدون شعار) */
 .hero {
-    padding-top: 100px;
+    padding-top: 120px;
     background: linear-gradient(to bottom, #fff5f5, #ffffff);
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 2rem; /* تصغير حجم العنوان */
-    font-weight: 800;
+    font-size: 2.2rem;
+    font-weight: 900;
     color: var(--dark-navy);
     margin-bottom: 10px;
 }
 
 .hero-desc {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #64748b;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
-/* 4. تكبير الهاتف ومعالجة محاذاة الصور */
+/* 4. تكبير الهاتف ومعالجة فراغ اليمين (الحل النهائي) */
 .phone-container {
     position: relative;
-    width: 360px; /* تكبير الهاتف من 320 إلى 360 */
-    margin: 0 auto -200px; 
+    width: 380px; /* حجم كبير وواضح للجوال */
+    margin: 0 auto -220px; 
     z-index: 100;
-    transition: width 0.3s ease;
 }
 
 @media (min-width: 768px) {
     .phone-container {
-        width: 480px; /* تكبير الهاتف في الكمبيوتر من 420 إلى 480 */
-        margin-bottom: -280px;
+        width: 500px; /* حجم ضخم للكمبيوتر */
+        margin-bottom: -300px;
     }
 }
 
@@ -72,11 +96,10 @@ body { background: white; overflow-x: hidden; line-height: 1.6; }
 
 .screen {
     position: absolute;
-    top: 2.2%; 
-    /* تم تحريك الصورة لليمين قليلاً بتقليل الـ left من 6.4% إلى 6.1% */
-    left: 6.1%; 
-    width: 87.8%; /* تكبير عرض الصورة قليلاً لسد الفراغ */
-    height: 95.5%;
+    top: 2.1%; 
+    left: 5.8%;  /* تقليل المسافة من اليسار */
+    width: 88.6%; /* زيادة العرض لسد الفراغ جهة اليمين */
+    height: 95.8%;
     background: #000;
     border-radius: 45px;
     overflow: hidden;
@@ -87,22 +110,63 @@ body { background: white; overflow-x: hidden; line-height: 1.6; }
 .slider img {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: fill; /* ملء الإطار بالكامل */
     flex-shrink: 0;
 }
 
-/* 5. قسم المميزات */
+/* 5. قسم بطاقات المعلومات (استعادة التنسيق الاحترافي) */
 .features {
     background-color: var(--dark-navy);
     color: white;
-    padding: 260px 0 80px; /* زيادة التباعد بسبب تكبير الهاتف */
+    padding: 280px 0 80px; /* مسافة كافية لبروز الهاتف */
     position: relative;
     z-index: 1;
 }
 
-/* 6. تصغير زر التحميل السفلي وتوسيطه */
+.section-title h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card:hover {
+    transform: translateY(-12px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-red);
+}
+
+.feature-card .icon {
+    font-size: 45px;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.feature-card h3 { margin-bottom: 15px; font-size: 1.3rem; }
+.feature-card p { color: #cbd5e1; font-size: 0.95rem; line-height: 1.7; }
+
+/* 6. قسم التحميل السفلي (تصغير وتنسيق) */
 .download-section {
-    padding: 80px 0;
+    padding: 100px 0;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -115,15 +179,14 @@ body { background: white; overflow-x: hidden; line-height: 1.6; }
     align-items: center;
     background: var(--primary-red);
     color: white;
-    padding: 15px 45px; /* تصغير البادينج */
-    border-radius: 15px;
+    padding: 18px 50px;
+    border-radius: 18px;
     text-decoration: none;
-    box-shadow: 0 10px 25px rgba(219, 68, 68, 0.2);
+    box-shadow: 0 15px 30px rgba(219, 68, 68, 0.25);
+    transition: 0.3s;
 }
 
-.btn-download-big .main-text {
-    font-size: 1.2rem; /* تصغير حجم نص الزر */
-    font-weight: 700;
-}
+.btn-download-big:hover { transform: scale(1.03); }
+.btn-download-big .main-text { font-size: 1.3rem; font-weight: 800; }
 
-.footer { background: #020617; color: #94a3b8; text-align: center; padding: 30px 0; }
+.footer { background: #020617; color: #94a3b8; text-align: center; padding: 30px 0; font-size: 0.9rem; }
