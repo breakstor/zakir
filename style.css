@@ -202,11 +202,12 @@ html {
     background: #f8fafc;
     border-top: 1px solid #e2e8f0;
 }
-
-.download-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #0f172a;
+.download-section {
+    text-align: center; /* هذا سيجعل الزر يتمركز في منتصف الشاشة */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .download-box {
@@ -216,13 +217,17 @@ html {
 .btn-download-big {
     display: inline-flex;
     flex-direction: column;
+    /* لجعل النص الفرعي والرئيسي في منتصف الزر */
+    align-items: center; 
+    text-align: center;
+    
     background: #db4444;
     color: white;
     padding: 20px 60px;
     border-radius: 20px;
     text-decoration: none;
     box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
-    transition: 0.3s transform;
+    transition: 0.3s all ease; /* جعل الانتقال يشمل اللون والحركة */
 }
 
 .btn-download-big:hover {
@@ -233,13 +238,9 @@ html {
 .btn-download-big .main-text {
     font-size: 1.5rem;
     font-weight: 900;
+    display: block; /* لضمان أخذ مساحة مستقلة */
 }
 
-.btn-download-big .sub-text {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin-top: 5px;
-}
 
 
 .footer {
@@ -249,6 +250,7 @@ html {
     padding: 30px 0;
     font-size: 14px;
 }
+
 
 
 
