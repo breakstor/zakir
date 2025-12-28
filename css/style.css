@@ -1,42 +1,128 @@
-/* ===== تعديل عرض/طول الموك-أب ومسافات الهيدر/CTA ===== */
+/* css/style.css
+   Landing hero for Zakir - final tuned version
+   - bigger phone mockup
+   - soft fog gradients
+   - tighter spacing header -> phone -> CTA
+   - swipe hint, fallback, responsive tweaks
+*/
 
-/* نخفض الـ padding العلوية للـ hero لقرابة الشريط العلوي */
+/* ================== Variables ================== */
+:root{
+  --accent: #ce3b3b;    /* لون التطبيق */
+  --bg1: #051025;
+  --bg2: #071426;
+  --white: #ffffff;
+  --fog-strong: rgba(255,255,255,0.12);
+  --fog-mid: rgba(255,255,255,0.06);
+  --fog-clear: rgba(255,255,255,0.00);
+}
+
+/* ================== Base reset ================== */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Tajawal', system-ui, Arial, sans-serif;background:linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 60%);color:var(--white);-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+img{max-width:100%;display:block;border:0;}
+
+/* ================== Hero layout ================== */
 .hero{
-  padding:18px 14px 36px; /* كان 28px سابقاً - خفّفناها */
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding:18px 14px 36px; /* أخففنا التباعد العلوي والسفلي */
+  position:relative;
+  overflow:hidden;
 }
 
-/* Header أصغر مسافة أسفله */
+/* ===== Header ===== */
 .hero__header{
-  margin:0 auto 4px; /* قلّل المسافة تحت الهيدر */
+  width:100%;
+  max-width:420px;
+  margin:0 auto 4px; /* تقليل المسافة تحت الهيدر */
+  display:flex;
+  align-items:center;
+  gap:12px;
+  justify-content:center;
+}
+.logo{
+  width:56px;
+  height:56px;
+  object-fit:contain;
+  border-radius:10px;
+  background:rgba(255,255,255,0.04);
+  padding:6px;
+}
+.app-title{
+  font-size:20px;
+  margin:0;
+  color:#fff;
+  font-weight:700;
+  letter-spacing:0.3px;
+  text-align:center;
 }
 
-/* نجعل الـ phone-wrap أكبر ويأخذ أكبر عرض ممكن على الهاتف */
+/* ================== Fog / soft wave ================== */
+.fog{
+  width:100%;
+  max-width:420px;
+  height:86px;
+  margin:0 auto;
+  background: radial-gradient(
+    ellipse at center,
+    var(--fog-strong) 0%,
+    var(--fog-mid) 40%,
+    var(--fog-clear) 70%
+  );
+  filter: blur(16px);
+  border-radius:18px;
+  pointer-events:none;
+  animation:floatFog 6s ease-in-out infinite;
+}
+.fog--top{transform:translateY(-8px)}
+.fog--bottom{transform:translateY(8px) rotate(180deg)}
+@keyframes floatFog{
+  0%{transform:translateY(-9px) translateX(0);}
+  50%{transform:translateY(-10px) translateX(-4%);}
+  100%{transform:translateY(-9px) translateX(0);}
+}
+
+/* ================== Phone / Mockup ================== */
+.hero__center{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin:4px 0 6px; /* تقليل المسافات */
+}
+
+/* phone wrapper - أكبر عرض ممكن على الهواتف */
 .phone-wrap{
   position:relative;
-  width: min(92vw, 460px); /* يستغل عرض الشاشة على الهواتف، محدود 460px للشاشات الأكبر */
+  width: min(92vw, 460px); /* يستغل عرض الشاشة على الهواتف، محدود 460px على الشاشات الكبيرة */
   max-width:96vw;
   height:auto;
   margin:6px auto 0;
   filter: drop-shadow(0 32px 60px rgba(0,0,0,0.45));
   transition:transform .18s ease;
 }
+.phone-wrap:hover{transform:translateY(-6px)}
 
-/* إطار الهاتف يصبح بعرض 100% كما كان */
+/* إطار الموك اب */
 .phone-frame{
   width:100%;
   display:block;
 }
 
-/* شاشة التطبيق داخل الموك-أب — قيم موسعة لتملأ الإطار تقريباً */
+/* شاشة التطبيق داخل الموك-أب - قيم محسّنة لتملأ الإطار تقريباً */
 .phone-screen{
   position:absolute;
-  /* قيم محسّنة لأخذ معظم مساحة الإطار */
-  top:11.5%;      /* رفع الشاشة أقرب إلى حافة أعلى الإطار */
-  left:7.5%;      /* تقليل الحافة اليسرى لجعل الشاشة أعرض */
-  width:84.5%;    /* عرض أعلى لتقليل المساحات الجانبية */
-  height:78.5%;   /* زيادة الطول لتعطي إحساس هاتف حقيقي */
+  top:11.5%;      /* رفع الشاشة أقرب لحافة أعلى الإطار */
+  left:7.5%;      /* تقليل الحافة الجانبية لزيادة العرض */
+  width:84.5%;    /* عرض أكبر لتقليل الحواف */
+  height:78.5%;   /* طول أكبر ليبدو الهاتف حقيقي */
   overflow:hidden;
-  border-radius:34px;   /* تقريب أكبر لقطع الشاشة */
+  border-radius:34px; /* انحناء كبير متناسق مع الإطار */
   background:#f8f8f8;
   display:flex;
   align-items:center;
@@ -44,33 +130,94 @@
   box-shadow: inset 0 1px 0 rgba(0,0,0,0.06);
 }
 
-/* ننقص المسافة بين الهاتف والنص أدناه */
+/* fallback box (لو فشل تحميل موك اب) */
+.phone-fallback{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:6;
+}
+.phone-fallback .fallback-box{
+  width:82%;
+  padding:18px;
+  border-radius:14px;
+  background:linear-gradient(180deg,#0b1220,#0a1320);
+  color:rgba(255,255,255,0.9);
+  border:1px dashed rgba(255,255,255,0.06);
+  text-align:center;
+  font-size:14px;
+}
+
+/* ================== Swiper inside screen ================== */
+.mySwiper{width:100%;height:100%}
+.swiper-slide img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* pagination small dots inside bottom of phone-screen */
+.swiper-pagination{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:8px;
+  z-index:5;
+}
+
+/* simple touch hint */
 .swipe-hint{
   font-size:12px;
   color:rgba(255,255,255,0.72);
-  margin-top:6px;   /* كان 8px */
+  margin-top:6px;
   margin-bottom:4px;
 }
 
-/* نقل CTA أقرب للهاتف */
-.hero__center{
-  margin:4px 0 6px;  /* قلّل المسافة العلوية والسفلية للمنطقة المركزية */
-}
-
-/* جعل قسم الدعوة أقل مسافة من الهاتف */
+/* ================== CTA section ================== */
 .hero__cta{
   width:100%;
   max-width:420px;
-  margin:12px auto 0; /* كان 18px، خففناها */
+  margin:12px auto 0; /* نقل CTA أقرب للهاتف */
   text-align:center;
   padding:0 6px;
 }
+.cta-title{
+  color:#fff;
+  font-size:18px;
+  margin:0 0 8px;
+  font-weight:700;
+}
+.cta-desc{
+  color:rgba(255,255,255,0.9);
+  margin:0 0 10px;
+  font-size:14px;
+}
 
-/* تصغير مسافة وصف CTA قليلًا */
-.cta-desc{ margin:0 0 10px; }
+/* download button */
+.btn-download{
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:12px;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  font-size:16px;
+  box-shadow:0 10px 26px rgba(206,59,59,0.22);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn-download:active{transform:translateY(1px)}
+.btn-download:focus{outline:3px solid rgba(255,255,255,0.08);outline-offset:3px}
 
-/* Responsive tweaks - أجهزة صغيرة جدًا */
-@media (max-width:360px){
+/* ================== Responsive tweaks ================== */
+@media (min-width:600px){
+  .phone-wrap{width:380px}
+  .app-title{font-size:22px}
+}
+
+@media (max-width:480px){
+  .hero{padding:14px 12px 28px}
   .phone-screen{
     top:10.5%;
     left:6.6%;
@@ -78,7 +225,19 @@
     height:80%;
     border-radius:32px;
   }
-  .hero{ padding:14px 12px 28px; }
-  .hero__header{ margin-bottom:3px; }
-  .hero__cta{ margin-top:10px; }
+  .phone-wrap{width:min(94vw,420px)}
+  .hero__header{margin-bottom:3px}
+  .hero__cta{margin-top:10px}
 }
+
+/* very small devices */
+@media (max-width:360px){
+  .phone-screen{top:10%;left:6%;width:88%;height:82%;border-radius:30px}
+  .logo{width:48px;height:48px}
+  .app-title{font-size:18px}
+  .cta-title{font-size:17px}
+  .btn-download{padding:12px 18px;font-size:15px}
+}
+
+/* ================== Accessibility helpers ================== */
+.btn-download[role="button"]{cursor:pointer}
