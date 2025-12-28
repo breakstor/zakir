@@ -1,22 +1,25 @@
-/* إعدادات عامة */
+/* استيراد خط تجوال */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+
 :root {
-    --primary-color: #2563eb;
-    --dark-bg: #0f172a;
+    --primary-app: #db4444; /* لون التطبيق الأحمر */
+    --primary-hover: #b83232; 
+    --dark-navy: #0f172a;
     --light-bg: #f8fafc;
+    --font-main: 'Tajawal', sans-serif;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    .tajawal-regular {
-  font-family: "Tajawal", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: var(--font-main);
 }
 
 body {
     background-color: white;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -25,7 +28,7 @@ body {
     padding: 0 20px;
 }
 
-/* الهيدر - تقليل المسافة */
+/* --- الهيدر --- */
 .main-header {
     height: 70px;
     display: flex;
@@ -33,7 +36,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid #eee;
@@ -49,11 +52,11 @@ body {
 .logo {
     font-size: 24px;
     font-weight: 900;
-    color: var(--primary-color);
+    color: var(--primary-app); /* تغيير للأحمر */
 }
 
 .btn-primary {
-    background: var(--primary-color);
+    background: var(--primary-app); /* تغيير للأحمر */
     color: white;
     padding: 10px 25px;
     border-radius: 50px;
@@ -62,24 +65,37 @@ body {
     transition: 0.3s;
 }
 
-/* قسم الهيرو - تقليل المسافات العلوية */
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* --- قسم الهيرو (الشعار والنص في سطر واحد) --- */
 .hero {
-    padding-top: 100px; /* مسافة بسيطة بعد الهيدر */
+    padding-top: 120px;
     padding-bottom: 0;
-    background: linear-gradient(to bottom, #eff6ff, #ffffff);
+    background: linear-gradient(to bottom, #fff5f5, #ffffff);
     text-align: center;
 }
 
-.main-logo {
-    width: 120px;
+.brand-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
+.hero-mini-logo {
+    width: 50px;
+    height: auto;
+}
+
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 900;
-    color: #1e293b;
-    margin-bottom: 15px;
+    color: var(--dark-navy);
+    margin: 0;
 }
 
 .hero p {
@@ -88,19 +104,18 @@ body {
     margin-bottom: 40px;
 }
 
-/* حاوية الهاتف - تكبير الحجم وعمل التداخل */
+/* --- حاوية الهاتف (ضبط دقيق لصورتك 1000140767.png) --- */
 .phone-container {
     position: relative;
-    width: 340px; /* عرض كبير ومناسب للجوال */
-    margin: 0 auto -180px; /* مارجن سفلي سالب لسحب القسم التالي فوق الهاتف */
+    width: 320px;
+    margin: 0 auto -160px; /* تداخل مع القسم السفلي */
     z-index: 50;
-    transition: transform 0.3s ease;
 }
 
 @media (min-width: 768px) {
     .phone-container {
-        width: 420px; /* حجم أكبر لشاشات الكمبيوتر */
-        margin-bottom: -250px;
+        width: 420px;
+        margin-bottom: -240px;
     }
 }
 
@@ -110,23 +125,22 @@ body {
     display: block;
     position: relative;
     z-index: 10;
-    filter: drop-shadow(0 25px 50px rgba(0,0,0,0.15));
+    filter: drop-shadow(0 25px 50px rgba(0,0,0,0.1));
 }
 
-/* الشاشة الداخلية - ضبطها لتناسب إطار iPhone 15 Pro */
 .screen {
     position: absolute;
-    top: 2.2%; /* دقة متناهية لتناسب الإطار الأسود */
-    left: 6.4%;
-    width: 87.2%;
-    height: 95.5%;
+    /* هذه النسب تعالج الفراغات السوداء في ملف الصورة الخاص بك */
+    top: 15.6%; 
+    left: 10.6%;
+    width: 78.8%;
+    height: 69.1%;
     background: #000;
-    border-radius: 45px; /* انحناء الشاشة */
+    border-radius: 35px;
     overflow: hidden;
     z-index: 5;
 }
 
-/* السلايدر */
 .slider {
     display: flex;
     width: 100%;
@@ -137,111 +151,69 @@ body {
 .slider img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* جعل الصور تملأ الشاشة بالكامل */
+    object-fit: cover;
     flex-shrink: 0;
 }
 
-/* قسم المميزات - التداخل */
+/* --- قسم المميزات --- */
 .features {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-navy);
     color: white;
-    padding-top: 220px; /* مسافة كافية لكي يظهر الهاتف المتداخل */
+    padding-top: 220px;
     padding-bottom: 80px;
     position: relative;
     z-index: 1;
 }
 
-.section-title h2 {
-    font-size: 2rem;
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.feature-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 40px 30px;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    transition: 0.3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
-}
-
 .feature-card .icon {
     font-size: 40px;
-    display: block;
+    color: var(--primary-app); /* تغيير للأحمر */
     margin-bottom: 20px;
 }
 
-/* إصلاح الشاشة الداخلية للهاتف */
-.slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill; /* سيقوم بمد الصورة لتملأ الشاشة بالكامل */
-    flex-shrink: 0;
-}
-
-/* التمرير السلس */
-html {
-    scroll-behavior: smooth;
-}
-
-/* قسم التحميل النهائي */
+/* --- قسم التحميل النهائي (متمركز في المنتصف) --- */
 .download-section {
-    padding: 100px 0;
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
-}
-.download-section {
-    text-align: center; /* هذا سيجعل الزر يتمركز في منتصف الشاشة */
+    padding: 120px 0;
+    background: var(--light-bg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.download-box {
-    margin-top: 40px;
+    text-align: center;
+    border-top: 1px solid #eee;
 }
 
 .btn-download-big {
     display: inline-flex;
     flex-direction: column;
-    /* لجعل النص الفرعي والرئيسي في منتصف الزر */
     align-items: center; 
     text-align: center;
-    
-    background: #db4444;
+    background: var(--primary-app);
     color: white;
     padding: 20px 60px;
     border-radius: 20px;
     text-decoration: none;
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
-    transition: 0.3s all ease; /* جعل الانتقال يشمل اللون والحركة */
+    box-shadow: 0 20px 40px rgba(219, 68, 68, 0.2);
+    transition: 0.3s all ease;
 }
 
 .btn-download-big:hover {
     transform: translateY(-5px);
-    background: #1d4ed8;
+    background: var(--primary-hover);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .btn-download-big .main-text {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 900;
-    display: block; /* لضمان أخذ مساحة مستقلة */
+    display: block;
 }
 
-
+.btn-download-big .sub-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 5px;
+}
 
 .footer {
     background: #020617;
@@ -250,10 +222,3 @@ html {
     padding: 30px 0;
     font-size: 14px;
 }
-
-
-
-
-
-
-
