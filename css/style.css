@@ -1,124 +1,81 @@
-:root{
-  --accent:#ce3b3b; /* لون التطبيق */
-  --bg1:#051025;
-  --bg2:#071426;
-  --white:#ffffff;
-}
+import React from 'react';
 
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family: 'Tajawal', system-ui, Arial; background:linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 60%); color:var(--white);}
+const Hero = () => {
+  return (
+    <div className="relative">
+      {/* القسم العلوي - Hero Section */}
+      <section className="relative pt-20 pb-0 bg-white overflow-visible">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center text-center">
+            {/* النصوص */}
+            <div className="max-w-3xl mb-12 animate-fade-in-up">
+              <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-tight">
+                ذاكر بذكاء، <br />
+                <span className="text-blue-600 italic">لا بجهد.</span>
+              </h1>
+              <p className="text-lg md:text-xl text-gray-500 max-w-xl mx-auto">
+                التطبيق الأول في السودان لتنظيم دراستك وتفوقك الأكاديمي. كل ما تحتاجه في مكان واحد.
+              </p>
+            </div>
 
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-  padding:28px 18px 48px;
-  position:relative;
-  overflow:hidden;
-}
+            {/* أزرار التحميل */}
+            <div className="flex flex-wrap justify-center gap-4 mb-16 relative z-30">
+              <button className="px-10 py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all active:scale-95">
+                ابدأ الآن مجاناً
+              </button>
+            </div>
 
-/* Header */
-.hero__header{
-  width:100%;
-  max-width:420px;
-  margin:0 auto 6px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  justify-content:center;
-}
-.logo{width:56px;height:56px;object-fit:contain;border-radius:10px;background:rgba(255,255,255,0.04);padding:6px}
-.app-title{font-size:20px;margin:0;color:#fff;font-weight:700;letter-spacing:0.4px}
+            {/* عرض الهاتف المتداخل */}
+            <div className="relative w-[320px] md:w-[420px] z-20 -mb-[150px] md:-mb-[250px] transition-transform duration-700 hover:scale-[1.02]">
+              {/* صورة إطار الهاتف من مجلد public */}
+              <img 
+                src="/phone-frame.png" 
+                alt="Zakir App Frame" 
+                className="relative z-20 w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]"
+              />
 
-/* --- new nicer fog (soft blurred gradient) --- */
-.fog{
-  width:100%;
-  max-width:420px;
-  height:86px;
-  margin:0 auto;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255,255,255,0.12) 0%,
-    rgba(255,255,255,0.06) 40%,
-    rgba(255,255,255,0.00) 70%
+              {/* الشاشة الداخلية - هنا تظهر صورة التطبيق الحقيقية */}
+              <div className="absolute top-[2.2%] left-[6.5%] w-[87%] h-[95.5%] z-10 overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] bg-gray-100">
+                <img 
+                  src="images/slide1.jpeg" 
+                  alt="Zakir App Interface" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* القسم السفلي - ميزات التطبيق */}
+      {/* لاحظ الـ pt-40 أو pt-60 لتعويض تداخل الهاتف */}
+      <section className="bg-gray-950 pt-[200px] md:pt-[350px] pb-32 text-white overflow-hidden">
+        <div className="container mx-auto px-4 relative">
+          
+          {/* لمسة فنية: خلفية ضوئية خلف الهاتف */}
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-full max-w-2xl h-96 bg-blue-600/20 blur-[120px] rounded-full"></div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center relative z-10">
+            <div className="space-y-4 p-6 rounded-3xl bg-white/5 border border-white/10">
+              <div className="text-3xl">📅</div>
+              <h3 className="text-xl font-bold">جدول دراسي مرن</h3>
+              <p className="text-gray-400">نظم محاضراتك ودروسك بسهولة مع تنبيهات ذكية.</p>
+            </div>
+            <div className="space-y-4 p-6 rounded-3xl bg-white/5 border border-white/10">
+              <div className="text-3xl">📚</div>
+              <h3 className="text-xl font-bold">بنك الأسئلة</h3>
+              <p className="text-gray-400">آلاف الأسئلة والامتحانات السابقة لمساعدتك في المراجعة.</p>
+            </div>
+            <div className="space-y-4 p-6 rounded-3xl bg-white/5 border border-white/10">
+              <div className="text-3xl">📈</div>
+              <h3 className="text-xl font-bold">تقارير الأداء</h3>
+              <p className="text-gray-400">رسوم بيانية توضح لك مدى تقدمك في كل مادة.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
-  filter: blur(16px);
-  border-radius:18px;
-  pointer-events:none;
-}
-.fog--top{transform:translateY(-8px)}
-.fog--bottom{transform:translateY(8px) rotate(180deg)}
-/* subtle animation */
-.fog{animation:floatFog 6s ease-in-out infinite}
-@keyframes floatFog{
-  0%{transform:translateY(-9px) translateX(0);}
-  50%{transform:translateY(-10px) translateX(-4%);}
-  100%{transform:translateY(-9px) translateX(0);}
-}
+};
 
-/* center phone */
-.hero__center{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:6px 0 8px}
-.phone-wrap{position:relative;width:340px;max-width:88vw;height:auto;margin-top:6px;filter: drop-shadow(0 32px 60px rgba(0,0,0,0.45));transition:transform .18s ease}
-.phone-wrap:hover{transform:translateY(-6px)}
-
-/* frame */
-.phone-frame{width:100%;display:block;}
-
-/* phone screen area - tuned to your phone mockup */
-.phone-screen{
-  position:absolute;
-  /* قيم محسّنة لتتطابق مع موك-أب الذي أرسلتَه */
-  top:19.03%;
-  left:12.22%;
-  width:69.81%;
-  height:58.33%;
-  overflow:hidden;
-  border-radius:26px;
-  background:#f8f8f8;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow: inset 0 1px 0 rgba(0,0,0,0.06);
-}
-
-/* fallback box (لو الموك اب مفقود) */
-.phone-fallback{position:absolute;top:0;left:0;width:100%;height:100%;display:none;align-items:center;justify-content:center}
-.phone-fallback .fallback-box{width:82%;padding:18px;border-radius:14px;background:linear-gradient(180deg,#0b1220,#0a1320);color:rgba(255,255,255,0.9);border:1px dashed rgba(255,255,255,0.06);text-align:center;font-size:14px}
-
-/* swiper inside screen */
-.mySwiper{width:100%;height:100%}
-.swiper-slide img{width:100%;height:100%;object-fit:cover;display:block}
-
-/* pagination small dots inside bottom of phone-screen */
-.swiper-pagination{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;z-index:5}
-
-/* swipe hint */
-.swipe-hint{font-size:12px;color:rgba(255,255,255,0.7);margin-top:8px;margin-bottom:4px;}
-
-/* CTA */
-.hero__cta{width:100%;max-width:420px;margin:18px auto 0;text-align:center;padding:0 6px}
-.cta-title{color:#fff;font-size:18px;margin:0 0 8px;font-weight:700}
-.cta-desc{color:rgba(255,255,255,0.9);margin:0 0 14px;font-size:14px}
-
-/* download button */
-.btn-download{
-  display:inline-block;padding:14px 22px;border-radius:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800;font-size:16px;box-shadow:0 10px 26px rgba(206,59,59,0.22);
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-.btn-download:active{transform:translateY(1px)}
-.btn-download:focus{outline:3px solid rgba(255,255,255,0.08);outline-offset:3px}
-
-/* Responsive */
-@media (min-width:600px){
-  .phone-wrap{width:380px}
-  .app-title{font-size:22px}
-}
-
-/* small screens adjust */
-@media (max-width:360px){
-  .phone-screen{top:18%;left:10%;width:80%;height:62%}
-  .logo{width:48px;height:48px}
-}
-
+export default Hero;
