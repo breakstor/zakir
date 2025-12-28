@@ -1,78 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ذاكر — حمّل التطبيق</title>
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-  <!-- main style -->
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق ذاكر - منصتك الذكية للمذاكرة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <main class="hero" role="main">
-    <!-- الهيدر -->
-    <header class="hero__header" role="banner">
-      <img src="assets/images/logo.png" alt="شعار ذاكر" class="logo" />
-      <h1 class="app-title">ذاكر… منصتك الذكية للمذاكرة</h1>
+    <header class="main-header">
+        <div class="container header-flex">
+            <div class="logo">ذاكر</div>
+            <nav>
+                <a href="#download" class="btn-primary">تحميل الآن</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- موجة ضبابية علوية -->
-    <div class="fog fog--top" aria-hidden="true"></div>
-
-    <!-- المنطقة الرئيسية (الهاتف + السلايدر) -->
-    <section class="hero__center" aria-label="عرض التطبيق">
-      <div class="phone-wrap">
-        <!-- إطار الموك أب -->
-        <img id="phoneFrame" class="phone-frame" src="assets/images/iphone_frame.png" alt="موك اب الهاتف">
-
-        <!-- شاشة الهاتف (محتوى السلايدر) -->
-        <div class="phone-screen" aria-hidden="false" id="phoneScreen">
-          <div class="swiper mySwiper" aria-live="polite">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img loading="lazy" src="assets/images/screen1.jpg" alt="واجهة التطبيق 1"></div>
-              <div class="swiper-slide"><img loading="lazy" src="assets/images/screen2.jpg" alt="واجهة التطبيق 2"></div>
-              <div class="swiper-slide"><img loading="lazy" src="assets/images/screen3.jpg" alt="واجهة التطبيق 3"></div>
-              <div class="swiper-slide"><img loading="lazy" src="assets/images/screen4.jpg" alt="واجهة التطبيق 4"></div>
-              <div class="swiper-slide"><img loading="lazy" src="assets/images/screen5.jpg" alt="واجهة التطبيق 5"></div>
-              <div class="swiper-slide"><img loading="lazy" src="assets/images/screen6.jpg" alt="واجهة التطبيق 6"></div>
+    <section class="hero">
+        <div class="container text-center">
+            <div class="hero-content">
+                <img src="logo.png" alt="Zakir Logo" class="main-logo"> <h1>تطبيق ذاكر التعليمي</h1>
+                <p>طريقك الأذكى لتنظيم دراستك وتحقيق النجاح الأكاديمي.</p>
             </div>
 
-            <!-- pagination داخل الشاشة -->
-            <div class="swiper-pagination" aria-hidden="false"></div>
-          </div>
+            <div class="phone-container">
+                <img src="1000140767.png" class="phone-frame" alt="iPhone Frame">
+                
+                <div class="screen">
+                    <div class="slider" id="slider">
+                        <img src="Screenshot/slide1.jpg" alt="Screen 1">
+                        <img src="Screenshot/slide2.jpg" alt="Screen 2">
+                        <img src="Screenshot/slide3.jpg" alt="Screen 3">
+                        <img src="Screenshot/slide4.jpg" alt="Screen 4">
+                        <img src="Screenshot/slide5.jpg" alt="Screen 5">
+                        <img src="Screenshot/slide6.jpg" alt="Screen 6">
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- fallback لو فشل تحميل صورة الموك اب -->
-        <div id="phoneFallback" class="phone-fallback" aria-hidden="true">
-          <div class="fallback-box">صورة الموك-أب غير متاحة</div>
-        </div>
-
-      </div>
-
-      <!-- تلميح السحب -->
-      <p class="swipe-hint">اسحب داخل شاشة الهاتف للتنقل</p>
     </section>
 
-    <!-- موجة ضبابية سفلية -->
-    <div class="fog fog--bottom" aria-hidden="true"></div>
-
-    <!-- النص و CTA -->
-    <section class="hero__cta" aria-label="دعوة التحميل">
-      <h2 class="cta-title">حمِّل تطبيق ذاكر الآن — واحصل على اشتراك شهر مجاني</h2>
-      <p class="cta-desc">اختبارات تفاعلية • تتبع التقدم • جداول دراسية • ملخصات سريعة • يعمل بدون إنترنت</p>
-
-      <!-- زر التحميل (استبدل href) -->
-      <a class="btn-download" href="#" id="downloadBtn" role="button" aria-label="تحميل تطبيق ذاكر">⬇ اضغط لتحميل التطبيق</a>
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>لماذا تختار تطبيق ذاكر؟</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="icon">📅</span>
+                    <h3>تنظيم الجداول</h3>
+                    <p>نظم وقتك الدراسي واحصل على تنبيهات ذكية للمحاضرات.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📚</span>
+                    <h3>بنك الأسئلة</h3>
+                    <p>وصول سريع للملخصات والامتحانات السابقة.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📊</span>
+                    <h3>متابعة الأداء</h3>
+                    <p>رسوم بيانية توضح مدى تقدمك في كل مادة دراسية.</p>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="js/script.js"></script>
+    <footer class="footer">
+        <p>جميع الحقوق محفوظة © تطبيق ذاكر 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
