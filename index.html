@@ -17,27 +17,20 @@
     <!-- الهيدر -->
     <header class="hero__header" role="banner">
       <img src="assets/images/logo.png" alt="شعار ذاكر" class="logo" />
-      <h1 class="app-title">ذاكر التعليمية</h1>
+      <h1 class="app-title">ذاكر… منصتك الذكية للمذاكرة</h1>
     </header>
 
     <!-- موجة ضبابية علوية -->
-    <div class="fog fog--top" aria-hidden="true">
-      <svg viewBox="0 0 1200 200" preserveAspectRatio="none" class="fog-svg">
-        <filter id="blurFilter"><feGaussianBlur stdDeviation="22" /></filter>
-        <g filter="url(#blurFilter)">
-          <path class="fog-path" d="M0,120 C180,40 360,200 600,140 C840,80 1020,160 1200,110 L1200 0 L0 0 Z"/>
-        </g>
-      </svg>
-    </div>
+    <div class="fog fog--top" aria-hidden="true"></div>
 
     <!-- المنطقة الرئيسية (الهاتف + السلايدر) -->
     <section class="hero__center" aria-label="عرض التطبيق">
       <div class="phone-wrap">
         <!-- إطار الموك أب -->
-        <img class="phone-frame" src="assets/images/phone.png" alt="موك اب الهاتف">
+        <img id="phoneFrame" class="phone-frame" src="assets/images/phone.png" alt="موك اب الهاتف">
 
         <!-- شاشة الهاتف (محتوى السلايدر) -->
-        <div class="phone-screen" aria-hidden="false">
+        <div class="phone-screen" aria-hidden="false" id="phoneScreen">
           <div class="swiper mySwiper" aria-live="polite">
             <div class="swiper-wrapper">
               <div class="swiper-slide"><img loading="lazy" src="assets/images/screen1.jpg" alt="واجهة التطبيق 1"></div>
@@ -53,26 +46,27 @@
           </div>
         </div>
 
+        <!-- fallback لو فشل تحميل صورة الموك اب -->
+        <div id="phoneFallback" class="phone-fallback" aria-hidden="true">
+          <div class="fallback-box">صورة الموك-أب غير متاحة</div>
+        </div>
+
       </div>
+
+      <!-- تلميح السحب -->
+      <p class="swipe-hint">اسحب داخل شاشة الهاتف للتنقل</p>
     </section>
 
-    <!-- موجة ضبابية سفلية (معكوسة) -->
-    <div class="fog fog--bottom" aria-hidden="true">
-      <svg viewBox="0 0 1200 200" preserveAspectRatio="none" class="fog-svg">
-        <filter id="blurFilter2"><feGaussianBlur stdDeviation="22" /></filter>
-        <g filter="url(#blurFilter2)">
-          <path class="fog-path" d="M0,80 C180,160 360,20 600,80 C840,140 1020,40 1200,90 L1200 200 L0 200 Z"/>
-        </g>
-      </svg>
-    </div>
+    <!-- موجة ضبابية سفلية -->
+    <div class="fog fog--bottom" aria-hidden="true"></div>
 
     <!-- النص و CTA -->
     <section class="hero__cta" aria-label="دعوة التحميل">
       <h2 class="cta-title">حمِّل تطبيق ذاكر الآن — واحصل على اشتراك شهر مجاني</h2>
-      <p class="cta-desc">اختبارات تفاعلية • تتبع التقدّم • جداول دراسية • ملخصات سريعة</p>
+      <p class="cta-desc">اختبارات تفاعلية • تتبع التقدم • جداول دراسية • ملخصات سريعة • يعمل بدون إنترنت</p>
 
-      <!-- زر التحميل (استبدل الرابط برابط APK أو Play Store) -->
-      <a class="btn-download" href="#" id="downloadBtn" role="button" aria-label="تحميل تطبيق ذاكر">اضغط لتحميل التطبيق</a>
+      <!-- زر التحميل (استبدل href) -->
+      <a class="btn-download" href="#" id="downloadBtn" role="button" aria-label="تحميل تطبيق ذاكر">⬇ اضغط لتحميل التطبيق</a>
     </section>
   </main>
 
