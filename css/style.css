@@ -1,81 +1,190 @@
-import React from 'react';
+/* إعدادات عامة */
+:root {
+    --primary-color: #2563eb;
+    --dark-bg: #0f172a;
+    --light-bg: #f8fafc;
+}
 
-const Hero = () => {
-  return (
-    <div className="relative">
-      {/* القسم العلوي - Hero Section */}
-      <section className="relative pt-20 pb-0 bg-white overflow-visible">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center text-center">
-            {/* النصوص */}
-            <div className="max-w-3xl mb-12 animate-fade-in-up">
-              <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-tight">
-                ذاكر بذكاء، <br />
-                <span className="text-blue-600 italic">لا بجهد.</span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-500 max-w-xl mx-auto">
-                التطبيق الأول في السودان لتنظيم دراستك وتفوقك الأكاديمي. كل ما تحتاجه في مكان واحد.
-              </p>
-            </div>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
 
-            {/* أزرار التحميل */}
-            <div className="flex flex-wrap justify-center gap-4 mb-16 relative z-30">
-              <button className="px-10 py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all active:scale-95">
-                ابدأ الآن مجاناً
-              </button>
-            </div>
+body {
+    background-color: white;
+    overflow-x: hidden;
+}
 
-            {/* عرض الهاتف المتداخل */}
-            <div className="relative w-[320px] md:w-[420px] z-20 -mb-[150px] md:-mb-[250px] transition-transform duration-700 hover:scale-[1.02]">
-              {/* صورة إطار الهاتف من مجلد public */}
-              <img 
-                src="/phone-frame.png" 
-                alt="Zakir App Frame" 
-                className="relative z-20 w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]"
-              />
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-              {/* الشاشة الداخلية - هنا تظهر صورة التطبيق الحقيقية */}
-              <div className="absolute top-[2.2%] left-[6.5%] w-[87%] h-[95.5%] z-10 overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] bg-gray-100">
-                <img 
-                  src="images/slide1.jpeg" 
-                  alt="Zakir App Interface" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+/* الهيدر - تقليل المسافة */
+.main-header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid #eee;
+}
 
-      {/* القسم السفلي - ميزات التطبيق */}
-      {/* لاحظ الـ pt-40 أو pt-60 لتعويض تداخل الهاتف */}
-      <section className="bg-gray-950 pt-[200px] md:pt-[350px] pb-32 text-white overflow-hidden">
-        <div className="container mx-auto px-4 relative">
-          
-          {/* لمسة فنية: خلفية ضوئية خلف الهاتف */}
-          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-full max-w-2xl h-96 bg-blue-600/20 blur-[120px] rounded-full"></div>
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center relative z-10">
-            <div className="space-y-4 p-6 rounded-3xl bg-white/5 border border-white/10">
-              <div className="text-3xl">📅</div>
-              <h3 className="text-xl font-bold">جدول دراسي مرن</h3>
-              <p className="text-gray-400">نظم محاضراتك ودروسك بسهولة مع تنبيهات ذكية.</p>
-            </div>
-            <div className="space-y-4 p-6 rounded-3xl bg-white/5 border border-white/10">
-              <div className="text-3xl">📚</div>
-              <h3 className="text-xl font-bold">بنك الأسئلة</h3>
-              <p className="text-gray-400">آلاف الأسئلة والامتحانات السابقة لمساعدتك في المراجعة.</p>
-            </div>
-            <div className="space-y-4 p-6 rounded-3xl bg-white/5 border border-white/10">
-              <div className="text-3xl">📈</div>
-              <h3 className="text-xl font-bold">تقارير الأداء</h3>
-              <p className="text-gray-400">رسوم بيانية توضح لك مدى تقدمك في كل مادة.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary-color);
+}
 
-export default Hero;
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* قسم الهيرو - تقليل المسافات العلوية */
+.hero {
+    padding-top: 100px; /* مسافة بسيطة بعد الهيدر */
+    padding-bottom: 0;
+    background: linear-gradient(to bottom, #eff6ff, #ffffff);
+    text-align: center;
+}
+
+.main-logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 40px;
+}
+
+/* حاوية الهاتف - تكبير الحجم وعمل التداخل */
+.phone-container {
+    position: relative;
+    width: 340px; /* عرض كبير ومناسب للجوال */
+    margin: 0 auto -180px; /* مارجن سفلي سالب لسحب القسم التالي فوق الهاتف */
+    z-index: 50;
+    transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .phone-container {
+        width: 420px; /* حجم أكبر لشاشات الكمبيوتر */
+        margin-bottom: -250px;
+    }
+}
+
+.phone-frame {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 10;
+    filter: drop-shadow(0 25px 50px rgba(0,0,0,0.15));
+}
+
+/* الشاشة الداخلية - ضبطها لتناسب إطار iPhone 15 Pro */
+.screen {
+    position: absolute;
+    top: 2.2%; /* دقة متناهية لتناسب الإطار الأسود */
+    left: 6.4%;
+    width: 87.2%;
+    height: 95.5%;
+    background: #000;
+    border-radius: 45px; /* انحناء الشاشة */
+    overflow: hidden;
+    z-index: 5;
+}
+
+/* السلايدر */
+.slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* جعل الصور تملأ الشاشة بالكامل */
+    flex-shrink: 0;
+}
+
+/* قسم المميزات - التداخل */
+.features {
+    background-color: var(--dark-bg);
+    color: white;
+    padding-top: 220px; /* مسافة كافية لكي يظهر الهاتف المتداخل */
+    padding-bottom: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.feature-card .icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer {
+    background: #020617;
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 14px;
+}
