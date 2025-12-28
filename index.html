@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ذاكر - منصتك الذكية للمذاكرة</title>
+    <title>تطبيق ذاكر - منصتك الذكية للمذاكرة</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
@@ -12,50 +12,65 @@
     <header class="main-header">
         <div class="container header-flex">
             <div class="logo">ذاكر</div>
-            <a href="#download-section" class="btn-top">تحميل الآن</a>
+            <nav>
+                <a href="#download" class="btn-primary">تحميل الآن</a>
+            </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="container">
-            <h1 class="hero-title">تطبيق ذاكر التعليمي</h1>
-            <p class="hero-desc">طريقك الأذكى لتنظيم دراستك وتحقيق النجاح الأكاديمي.</p>
-            
-            <div class="phone-wrapper">
-                <img src="Images/iphone_frame.png" class="phone-frame" alt="iPhone">
-                <div class="phone-screen">
-                    <div class="slider-track" id="slider">
-                        <img src="Screenshot/slide1.jpg" alt="1">
-                        <img src="Screenshot/slide2.jpg" alt="2">
-                        <img src="Screenshot/slide3.jpg" alt="3">
-                        <img src="Screenshot/slide4.jpg" alt="4">
-                        <img src="Screenshot/slide5.jpg" alt="5">
-                        <img src="Screenshot/slide6.jpg" alt="6">
+        <div class="container text-center">
+            <div class="hero-content">
+                <img src="logo.png" alt="Zakir Logo" class="main-logo"> <h1>تطبيق ذاكر التعليمي</h1>
+                <p>طريقك الأذكى لتنظيم دراستك وتحقيق النجاح الأكاديمي.</p>
+            </div>
+
+            <div class="phone-container">
+                <img src="1000140767.png" class="phone-frame" alt="iPhone Frame">
+                
+                <div class="screen">
+                    <div class="slider" id="slider">
+                        <img src="Screenshot/slide1.jpg" alt="Screen 1">
+                        <img src="Screenshot/slide2.jpg" alt="Screen 2">
+                        <img src="Screenshot/slide3.jpg" alt="Screen 3">
+                        <img src="Screenshot/slide4.jpg" alt="Screen 4">
+                        <img src="Screenshot/slide5.jpg" alt="Screen 5">
+                        <img src="Screenshot/slide6.jpg" alt="Screen 6">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features-dark">
+    <section class="features" id="features">
         <div class="container">
+            <div class="section-title">
+                <h2>لماذا تختار تطبيق ذاكر؟</h2>
+            </div>
             <div class="features-grid">
-                <div class="card"><h3>تنظيم ذكي</h3><p>جداول دراسية متطورة</p></div>
-                <div class="card"><h3>متابعة دقيقة</h3><p>إحصائيات لمستوى تقدمك</p></div>
-                <div class="card"><h3>بنك أسئلة</h3><p>آلاف الامتحانات السابقة</p></div>
+                <div class="feature-card">
+                    <span class="icon">📅</span>
+                    <h3>تنظيم الجداول</h3>
+                    <p>نظم وقتك الدراسي واحصل على تنبيهات ذكية للمحاضرات.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📚</span>
+                    <h3>بنك الأسئلة</h3>
+                    <p>وصول سريع للملخصات والامتحانات السابقة.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📊</span>
+                    <h3>متابعة الأداء</h3>
+                    <p>رسوم بيانية توضح مدى تقدمك في كل مادة دراسية.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="download-section" class="download-area">
-        <div class="container">
-            <h2>اضغط لتحميل التطبيق</h2>
-            <p>ابدأ رحلة التفوق الآن مع تطبيق ذاكر</p>
-            <a href="#" class="btn-big-download">تحميل للاندرويد والايفون</a>
-        </div>
-    </section>
+    <footer class="footer">
+        <p>جميع الحقوق محفوظة © تطبيق ذاكر 2025</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
