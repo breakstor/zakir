@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // القيمة index * 100 تعني تحريك السلايدر بنسبة مئوية بناءً على رقم الصورة
         const movePercentage = currentIndex * 100;
         slider.style.transform = `translateX(${movePercentage}%)`;
+        // تأكد أن العرض دائماً يطابق عرض الحاوية الأب
+        slider.style.width = `${totalSlides * 100}%`;
+
     }
 
     /**
@@ -55,3 +58,4 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
 });
+
