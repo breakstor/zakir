@@ -1,25 +1,26 @@
-/* 1. إعدادات الخط والألوان (تعديل الألوان والخط فقط) */
+/* 1. الإعدادات الأساسية والخط */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
 
 :root {
-    --primary-red: #db4444; /* لون تطبيقك الرئيسي */
-    --dark-bg: #0f172a;
-    --font-tajawal: 'Tajawal', sans-serif;
+    --primary-red: #db4444;
+    --dark-navy: #0f172a;
+    --font-main: 'Tajawal', sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-tajawal); /* تطبيق الخط الجديد */
+    font-family: var(--font-main);
 }
 
 body {
     background-color: white;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* 2. الهيدر (تحويل الأزرار للأحمر) */
+/* 2. الهيدر (تنسيق نظيف بدون شعار صورة) */
 .main-header {
     height: 70px;
     display: flex;
@@ -27,16 +28,27 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid #eee;
 }
 
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .logo {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 900;
     color: var(--primary-red);
+    letter-spacing: -1px;
 }
 
 .btn-primary {
@@ -49,46 +61,44 @@ body {
     transition: 0.3s;
 }
 
-/* 3. الهيرو (الشعار والنص في سطر واحد) */
+/* 3. قسم الهيرو (نص منسق بدون شعار) */
 .hero {
-    padding-top: 100px;
+    padding-top: 120px; /* مسافة كافية تحت الهيدر */
     padding-bottom: 0;
     background: linear-gradient(to bottom, #fff5f5, #ffffff);
     text-align: center;
 }
 
-.brand-inline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 10px;
-}
-
-.hero-mini-logo {
-    width: 50px;
-    height: auto;
-}
-
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 900;
-    color: #1e293b;
-    margin: 0;
+    color: var(--dark-navy);
+    margin-bottom: 15px;
+    /* تنسيق النص ليحل محل الشعار بشكل جذاب */
+    background: linear-gradient(45deg, var(--dark-navy), var(--primary-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* 4. إطار الهاتف (العودة للقيم الأصلية التي كانت ناجحة) */
+.hero-desc {
+    font-size: 1.2rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+/* 4. قسم الهاتف (المقاسات المضمونة التي ضبطناها) */
 .phone-container {
     position: relative;
     width: 320px;
-    margin: 0 auto -180px; 
-    z-index: 50;
+    margin: 0 auto -160px; /* التداخل مع القسم السفلي */
+    z-index: 100;
 }
 
 @media (min-width: 768px) {
     .phone-container {
         width: 420px;
-        margin-bottom: -250px;
+        margin-bottom: -240px;
     }
 }
 
@@ -100,7 +110,6 @@ body {
     z-index: 10;
 }
 
-/* الشاشة الداخلية (قيم الكود الأول الناجح) */
 .screen {
     position: absolute;
     top: 2.2%; 
@@ -117,31 +126,62 @@ body {
     display: flex;
     width: 100%;
     height: 100%;
-    transition: transform 0.5s ease-in-out;
 }
 
 .slider img {
     width: 100%;
     height: 100%;
-    object-fit: fill; /* لضمان ملء الفراغ بالكامل */
+    object-fit: fill;
     flex-shrink: 0;
 }
 
-/* 5. قسم المميزات */
+/* 5. قسم المميزات (استعادة التنسيق المتناسق القديم) */
 .features {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-navy);
     color: white;
-    padding-top: 220px;
+    padding-top: 220px; /* مسافة لظهور الهاتف المتداخل */
     padding-bottom: 80px;
     position: relative;
     z-index: 1;
 }
 
-.feature-card .icon {
-    color: var(--primary-red);
+.section-title h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    font-weight: 800;
 }
 
-/* 6. قسم التحميل السفلي (توسيط كامل) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card .icon {
+    font-size: 40px;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* 6. قسم التحميل السفلي (المتمركز) */
 .download-section {
     padding: 100px 0;
     background: #f8fafc;
@@ -161,11 +201,22 @@ body {
     padding: 20px 60px;
     border-radius: 20px;
     text-decoration: none;
-    box-shadow: 0 15px 30px rgba(219, 68, 68, 0.3);
+    box-shadow: 0 20px 40px rgba(219, 68, 68, 0.3);
     transition: 0.3s;
 }
 
+.btn-download-big:hover {
+    transform: translateY(-5px);
+}
+
 .btn-download-big .main-text {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 900;
+}
+
+.footer {
+    background: #020617;
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px 0;
 }
