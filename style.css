@@ -1,104 +1,55 @@
-/* --- إعدادات حاوية الهاتف الكبيرة --- */
-.phone-container {
+:root { --primary: #2563eb; --dark: #0f172a; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+html { scroll-behavior: smooth; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; text-align: center; }
+
+/* الهيدر */
+.main-header { height: 70px; display: flex; align-items: center; background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.header-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.logo { font-size: 24px; font-weight: 900; color: var(--primary); }
+.btn-top { background: var(--primary); color: white; padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; }
+
+/* الهيرو والتداخل */
+.hero { padding-top: 50px; background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%); overflow: visible; }
+.hero-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; color: var(--dark); }
+.hero-desc { color: #64748b; margin-bottom: 40px; }
+
+/* ضبط الهاتف - الحجم الحقيقي */
+.phone-wrapper {
     position: relative;
-    /* تكبير العرض ليكون الهاتف بارزاً */
-    width: 320px; 
-    /* التمركز والتداخل مع القسم السفلي */
-    margin: 20px auto -180px; 
+    width: 310px; /* العرض المثالي للجوال */
+    margin: 0 auto -150px; /* التداخل */
     z-index: 100;
-    /* منع أي اهتزاز أثناء الحركة */
-    backface-visibility: hidden;
 }
 
-/* تكبير الهاتف أكثر في الشاشات الواسعة */
 @media (min-width: 768px) {
-    .phone-container {
-        width: 450px; 
-        margin-bottom: -280px;
-    }
+    .phone-wrapper { width: 400px; margin-bottom: -220px; }
 }
 
-.phone-frame {
-    width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 10;
-    /* إضافة ظل ناعم للهاتف ليعطي عمق */
-    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));
-}
+.phone-frame { width: 100%; height: auto; position: relative; z-index: 10; pointer-events: none; }
 
-/* --- ضبط الشاشة الداخلية بدقة مذهلة --- */
-.screen {
+/* الشاشة الداخلية - منع الفراغات */
+.phone-screen {
     position: absolute;
-    /* هذه النسب مدروسة لتطابق إطار iPhone 15 Pro تماماً */
-    top: 2.1%; 
-    left: 6.3%;
-    width: 87.4%;
-    height: 95.8%;
+    top: 2.3%; left: 6.4%; width: 87.2%; height: 95.3%;
     background: #000;
-    /* تدوير الحواف ليناسب الإطار */
-    border-radius: 40px; 
+    border-radius: 35px;
     overflow: hidden;
     z-index: 5;
 }
 
-@media (min-width: 768px) {
-    .screen {
-        border-radius: 55px; /* تدوير أكبر للشاشات الكبيرة */
-    }
+.slider-track { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.slider-track img { 
+    width: 100%; height: 100%; 
+    object-fit: cover; /* لملء الشاشة بوضوح */
+    flex-shrink: 0; 
 }
 
-/* --- السلايدر والصور --- */
-.slider {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* الأقسام السفلية */
+.features-dark { background: var(--dark); padding: 200px 0 60px; color: white; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
 
-.slider img {
-    width: 100%;
-    height: 100%;
-    /* الحل الأهم: contain يحافظ على الوضوح والنسبة الأصلية */
-    /* إذا كانت صورك طويلة جداً، استخدم cover، لكن contain هو الأكثر أماناً للوضوح */
-    object-fit: cover; 
-    flex-shrink: 0;
-    /* تحسين جودة الصورة عند التصغير */
-    image-rendering: -webkit-optimize-contrast;
-}
-
-/* --- قسم المميزات (الخلفية الداكنة) --- */
-.features {
-    background-color: #0f172a; /* لون داكن احترافي */
-    color: white;
-    /* زيادة الـ padding العلوي ليظهر الهاتف بوضوح فوقه */
-    padding-top: 250px; 
-    padding-bottom: 80px;
-    position: relative;
-    z-index: 1;
-}
-
-/* --- قسم التحميل في النهاية --- */
-.download-section {
-    padding: 80px 0;
-    text-align: center;
-    background: #f1f5f9;
-}
-
-.btn-download-main {
-    display: inline-block;
-    background: #2563eb;
-    color: white;
-    padding: 20px 50px;
-    border-radius: 15px;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
-    transition: 0.3s;
-}
-
-.btn-download-main:hover {
-    transform: scale(1.05);
-    background: #1d4ed8;
-}
+.download-area { padding: 100px 0; background: #f8fafc; }
+.btn-big-download { display: inline-block; margin-top: 30px; background: var(--primary); color: white; padding: 20px 40px; border-radius: 15px; text-decoration: none; font-weight: 900; font-size: 1.2rem; box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3); }
