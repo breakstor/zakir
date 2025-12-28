@@ -1,9 +1,9 @@
-/* 1. الإعدادات الأساسية والخط */
+/* 1. الإعدادات العامة والخط */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
 
 :root {
-    --primary-red: #db4444;
-    --primary-hover: #b83232;
+    --primary-red: #db4444; /* لون تطبيق ذاكر الرئيسي */
+    --primary-hover: #b83232; 
     --dark-navy: #0f172a;
     --font-main: 'Tajawal', sans-serif;
 }
@@ -15,78 +15,162 @@
     font-family: var(--font-main);
 }
 
-html { scroll-behavior: smooth; }
-body { background: white; overflow-x: hidden; line-height: 1.6; }
+html {
+    scroll-behavior: smooth;
+}
 
-/* 2. الهيدر */
+body {
+    background-color: white;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. الهيدر (تحديث اللون للأحمر) */
 .main-header {
     height: 70px;
     display: flex;
     align-items: center;
     position: fixed;
-    top: 0; width: 100%;
+    top: 0;
+    width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid #eee;
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.header-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-.logo { font-size: 24px; font-weight: 900; color: var(--primary-red); }
-.btn-primary { 
-    background: var(--primary-red); color: white; padding: 10px 25px; 
-    border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-/* 3. قسم الهيرو والشعار المدمج */
-.hero { padding: 120px 0 0; background: linear-gradient(to bottom, #fff5f5, #ffffff); text-align: center; }
-.brand-inline { 
-    display: flex; align-items: center; justify-content: center; 
-    gap: 15px; margin-bottom: 15px; 
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary-red);
 }
-.hero-mini-logo { width: 50px; height: auto; }
-.hero h1 { font-size: 2.2rem; font-weight: 900; color: var(--dark-navy); }
-.hero-desc { color: #64748b; margin-bottom: 40px; font-size: 1.1rem; }
 
-/* 4. إطار الهاتف والسلايدر (إصلاح الصور) */
+.btn-primary {
+    background: var(--primary-red);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* 3. قسم الهيرو (الشعار والنص في سطر واحد) */
+.hero {
+    padding: 120px 0 0;
+    background: linear-gradient(to bottom, #fff5f5, #ffffff);
+    text-align: center;
+}
+
+.brand-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.hero-mini-logo {
+    width: 50px;
+    height: auto;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--dark-navy);
+}
+
+.hero-desc {
+    color: #64748b;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* 4. إطار الهاتف والسلايدر (الضبط النهائي للمقاسات) */
 .phone-container {
     position: relative;
     width: 320px;
-    margin: 0 auto -160px; /* التداخل */
+    margin: 0 auto -160px; /* تداخل مع قسم المميزات */
     z-index: 100;
 }
 
 @media (min-width: 768px) {
-    .phone-container { width: 420px; margin-bottom: -240px; }
+    .phone-container {
+        width: 420px;
+        margin-bottom: -240px;
+    }
 }
 
-.phone-frame { width: 100%; height: auto; display: block; position: relative; z-index: 10; }
+.phone-frame {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 10;
+    pointer-events: none;
+}
 
 .screen {
     position: absolute;
-    top: 15.6%; left: 10.6%; width: 78.8%; height: 69.1%;
-    background: #000; border-radius: 35px; overflow: hidden; z-index: 5;
+    /* إحداثيات دقيقة لملء الفراغ الأسود في صورتك 1000140767.png */
+    top: 15.6%; 
+    left: 10.4%;
+    width: 79.2%;
+    height: 69.1%;
+    background: #000;
+    border-radius: 32px;
+    overflow: hidden;
+    z-index: 5;
 }
 
-.slider { display: flex; width: 100%; height: 100%; transition: 0.5s ease-in-out; }
-.slider img { 
-    width: 100%; height: 100%; 
-    object-fit: cover !important; /* لضمان عدم صغر الصور وملئها للشاشة */
-    flex-shrink: 0; 
+.slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 5. قسم المميزات (استعادة التنسيق المختفي) */
+.slider img {
+    width: 100%;
+    height: 100%;
+    /* هذا السطر يضمن تمدد الصور لتناسب مقاس الجوال تماماً */
+    object-fit: fill !important; 
+    flex-shrink: 0;
+}
+
+/* 5. قسم المميزات (استعادة التنسيق) */
 .features {
     background-color: var(--dark-navy);
     color: white;
-    padding: 240px 0 80px; /* زيادة التباعد العلوي للهاتف */
+    padding: 240px 0 80px; /* مسافة لظهور الهاتف المتداخل */
     position: relative;
     z-index: 1;
 }
 
-.section-title h2 { 
-    text-align: center; font-size: 2.2rem; margin-bottom: 60px; font-weight: 800; 
+.section-title h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+    font-weight: 800;
 }
 
 .features-grid {
@@ -101,30 +185,76 @@ body { background: white; overflow-x: hidden; line-height: 1.6; }
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
-.feature-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.1); }
-.feature-card .icon { font-size: 45px; display: block; margin-bottom: 20px; }
-.feature-card h3 { margin-bottom: 15px; font-size: 1.4rem; color: white; }
-.feature-card p { color: #cbd5e1; font-size: 0.95rem; }
+.feature-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+}
 
-/* 6. قسم التحميل النهائي */
+.feature-card .icon {
+    font-size: 45px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.feature-card p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+/* 6. قسم التحميل النهائي (توسيط كامل) */
 .download-section {
-    padding: 100px 0; background: #f8fafc;
-    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 100px 0;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .btn-download-big {
-    display: inline-flex; flex-direction: column; align-items: center;
-    background: var(--primary-red); color: white; padding: 20px 60px;
-    border-radius: 20px; text-decoration: none; margin-top: 30px;
-    box-shadow: 0 15px 30px rgba(219, 68, 68, 0.3); transition: 0.3s;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--primary-red);
+    color: white;
+    padding: 20px 60px;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 30px;
+    box-shadow: 0 20px 40px rgba(219, 68, 68, 0.2);
+    transition: 0.3s transform, 0.3s background;
 }
 
-.btn-download-big:hover { background: var(--primary-hover); transform: translateY(-5px); }
-.btn-download-big .main-text { font-size: 1.5rem; font-weight: 900; }
-.btn-download-big .sub-text { font-size: 0.9rem; opacity: 0.9; margin-top: 5px; }
+.btn-download-big:hover {
+    transform: translateY(-5px);
+    background: var(--primary-hover);
+}
+
+.btn-download-big .main-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.btn-download-big .sub-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 5px;
+}
 
 /* 7. الفوتر */
-.footer { background: #020617; color: #94a3b8; text-align: center; padding: 30px 0; }
+.footer {
+    background: #020617;
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 14px;
+}
