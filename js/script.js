@@ -1,38 +1,57 @@
-// init swiper inside phone
-const swiper = new Swiper('.mySwiper', {
-  loop: true,
-  autoplay: {
-    delay: 2400,
-    disableOnInteraction: false,
-  },
-  speed: 600,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  simulateTouch: true,
-  grabCursor: true,
-  a11y: {
-    enabled: true,
-    prevSlideMessage: 'الشريحة السابقة',
-    nextSlideMessage: 'الشريحة التالية',
-  }
-});
+// انتظار تحميل محتوى الصفحة بالكامل
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slider img');
+    
+    // إعدادات السلايدر
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const intervalTime = 3000; // التغيير كل 3 ثواني
 
-// fallback display لو فشل تحميل موك اب الهاتف
-const phoneFrame = document.getElementById('phoneFrame');
-const phoneFallback = document.getElementById('phoneFallback');
-const phoneScreen = document.getElementById('phoneScreen');
+    /**
+     * وظيفة تحريك السلايدر
+     */
+    function updateSlider() {
+        // في المواقع التي تستخدم dir="rtl"، المتصفح يتعامل مع المحاور بشكل مختلف
+        // القيمة index * 100 تعني تحريك السلايدر بنسبة مئوية بناءً على رقم الصورة
+        const movePercentage = currentIndex * 100;
+        slider.style.transform = `translateX(${movePercentage}%)`;
+    }
 
-phoneFrame.addEventListener('error', () => {
-  // اخفاء الصورة واظهار عنصر بديل داخل .phone-wrap
-  phoneFrame.style.display = 'none';
-  phoneFallback.style.display = 'flex';
-  // لو حبيت نضع لون خلفي للشاشة بدل الصورة:
-  phoneScreen.style.background = 'linear-gradient(180deg,#ffffff,#f4f4f4)';
-});
+    /**
+     * الانتقال للصورة التالية
+     */
+    function nextSlide() {
+        currentIndex++;
+        
+        // إذا وصلنا لآخر صورة، نعود للبداية
+        if (currentIndex >= totalSlides) {
+            currentIndex = 0;
+        }
+        
+        updateSlider();
+    }
 
-// تجربة: لو حبيت تأكد أن الصورة تم تحميلها بنجاح:
-phoneFrame.addEventListener('load', () => {
-  phoneFallback.style.display = 'none';
+    // تشغيل الحركة التلقائية
+    let slideInterval = setInterval(nextSlide, intervalTime);
+
+    // تحسين: إيقاف الحركة مؤقتاً عند وضع الماوس على الهاتف (اختياري)
+    const phoneContainer = document.querySelector('.phone-container');
+    if (phoneContainer) {
+        phoneContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        phoneContainer.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, intervalTime);
+        });
+    }
+
+    // معالجة الأخطاء في حال عدم تحميل الصور (اختياري)
+    slides.forEach(img => {
+        img.onerror = function() {
+            console.error("فشل في تحميل الصورة: " + this.src);
+            this.style.display = 'none'; // إخفاء الصورة المكسورة
+        };
+    });
 });
