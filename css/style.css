@@ -30,42 +30,62 @@ html,body{height:100%;margin:0;font-family: 'Tajawal', system-ui, Arial; backgro
   justify-content:center;
 }
 .logo{width:56px;height:56px;object-fit:contain;border-radius:10px;background:rgba(255,255,255,0.04);padding:6px}
-.app-title{font-size:20px;margin:0;color:#fff;font-weight:700}
+.app-title{font-size:20px;margin:0;color:#fff;font-weight:700;letter-spacing:0.4px}
 
-/* fog svg wrappers */
-.fog{position:relative;width:100%;max-width:420px;margin:0 auto;pointer-events:none}
-.fog-svg{width:100%;height:60px;display:block;fill:rgba(255,255,255,0.06)}
+/* --- new nicer fog (soft blurred gradient) --- */
+.fog{
+  width:100%;
+  max-width:420px;
+  height:86px;
+  margin:0 auto;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.12) 0%,
+    rgba(255,255,255,0.06) 40%,
+    rgba(255,255,255,0.00) 70%
+  );
+  filter: blur(16px);
+  border-radius:18px;
+  pointer-events:none;
+}
 .fog--top{transform:translateY(-8px)}
 .fog--bottom{transform:translateY(8px) rotate(180deg)}
-
-/* subtle animation for fog */
-.fog-path{transform-origin:center;animation:slowFog 6s ease-in-out infinite}
-@keyframes slowFog{
-  0%{transform:translateX(0) scaleX(1)}
-  50%{transform:translateX(-6%) scaleX(1.02)}
-  100%{transform:translateX(0) scaleX(1)}
+/* subtle animation */
+.fog{animation:floatFog 6s ease-in-out infinite}
+@keyframes floatFog{
+  0%{transform:translateY(-9px) translateX(0);}
+  50%{transform:translateY(-10px) translateX(-4%);}
+  100%{transform:translateY(-9px) translateX(0);}
 }
 
 /* center phone */
-.hero__center{width:100%;display:flex;justify-content:center;margin:6px 0 8px}
-.phone-wrap{position:relative;width:320px;max-width:88vw;height:auto}
+.hero__center{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:6px 0 8px}
+.phone-wrap{position:relative;width:340px;max-width:88vw;height:auto;margin-top:6px;filter: drop-shadow(0 32px 60px rgba(0,0,0,0.45));transition:transform .18s ease}
+.phone-wrap:hover{transform:translateY(-6px)}
+
+/* frame */
 .phone-frame{width:100%;display:block;}
 
 /* phone screen area - tuned to your phone mockup */
 .phone-screen{
   position:absolute;
-  /* قيم محسّنة لتتطابق مع موك-أب */
+  /* قيم محسّنة لتتطابق مع موك-أب الذي أرسلتَه */
   top:19.03%;
   left:12.22%;
   width:69.81%;
   height:58.33%;
   overflow:hidden;
-  border-radius:20px;
+  border-radius:26px;
   background:#f8f8f8;
   display:flex;
   align-items:center;
   justify-content:center;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.06);
 }
+
+/* fallback box (لو الموك اب مفقود) */
+.phone-fallback{position:absolute;top:0;left:0;width:100%;height:100%;display:none;align-items:center;justify-content:center}
+.phone-fallback .fallback-box{width:82%;padding:18px;border-radius:14px;background:linear-gradient(180deg,#0b1220,#0a1320);color:rgba(255,255,255,0.9);border:1px dashed rgba(255,255,255,0.06);text-align:center;font-size:14px}
 
 /* swiper inside screen */
 .mySwiper{width:100%;height:100%}
@@ -73,6 +93,9 @@ html,body{height:100%;margin:0;font-family: 'Tajawal', system-ui, Arial; backgro
 
 /* pagination small dots inside bottom of phone-screen */
 .swiper-pagination{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;z-index:5}
+
+/* swipe hint */
+.swipe-hint{font-size:12px;color:rgba(255,255,255,0.7);margin-top:8px;margin-bottom:4px;}
 
 /* CTA */
 .hero__cta{width:100%;max-width:420px;margin:18px auto 0;text-align:center;padding:0 6px}
@@ -89,7 +112,7 @@ html,body{height:100%;margin:0;font-family: 'Tajawal', system-ui, Arial; backgro
 
 /* Responsive */
 @media (min-width:600px){
-  .phone-wrap{width:360px}
+  .phone-wrap{width:380px}
   .app-title{font-size:22px}
 }
 
