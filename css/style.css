@@ -72,8 +72,8 @@ html,body{height:100%;margin:0;font-family: 'Tajawal', system-ui, Arial; backgro
   /* قيم محسّنة لتتطابق مع موك-أب الذي أرسلتَه */
   top:19.03%;
   left:12.22%;
-  width:79.81%;
-  height:68.33%;
+  width:69.81%;
+  height:58.33%;
   overflow:hidden;
   border-radius:26px;
   background:#f8f8f8;
@@ -121,3 +121,4 @@ html,body{height:100%;margin:0;font-family: 'Tajawal', system-ui, Arial; backgro
   .phone-screen{top:18%;left:10%;width:80%;height:62%}
   .logo{width:48px;height:48px}
 }
+
