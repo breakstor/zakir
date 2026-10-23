@@ -1,122 +1,155 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تطبيق ذاكر - منصتك الذكية للمذاكرة</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#d93f43">
+  <meta name="description" content="ذاكر رفيقك في رحلة المذاكرة. كتب المنهج السوداني، امتحانات سابقة، دروس وملخصات، اختبارات تفاعلية وجدول مذاكرة ذكي.">
+  <title>تطبيق ذاكر | رفيقك في رحلة المذاكرة</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="main-header">
+    <div class="container header-flex">
+      <a class="logo" href="#top" aria-label="ذاكر - الصفحة الرئيسية">ذاكر<span> .</span></a>
+      <a href="#final-download" class="btn-primary">حمّل ذاكر الآن <span aria-hidden="true">↓</span></a>
+    </div>
+  </header>
 
-    <header class="main-header">
-        <div class="container header-flex">
-            <div class="logo">ذاكر</div>
-            <nav>
-                <a href="#final-download" class="btn-primary">تحميل الآن</a>
-            </nav>
-        </div>
-    </header>
-
+  <main id="top">
     <section class="hero">
-        <div class="container text-center">
-            <div class="brand-inline">
-                <h1> منصة ذاكر التعليمية </h1>
-            </div>
-            <p class="hero-desc"> حمل تطبيق ذاكر ، وابدأ المذاكرة </p>
+      <div class="container text-center">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> رفيق الطالب السوداني</span>
+        <h1>تطبيق <span>ذاكر</span></h1>
+        <p class="hero-desc">أي طالب محتاج رفيق في رحلة المذاكرة،<br class="desktop-break"> وذاكر حيكون رفيقك خطوة بخطوة.</p>
+        <div class="hero-note"><span aria-hidden="true">🇸🇩</span> مذاكرتك بترتيب، ومنهجك قريب منك وين ما كنت</div>
 
-            <div class="phone-container">
-                <img src="Images/iphone_frame.png" class="phone-frame" alt="iPhone Frame">
-                
-                <div class="screen">
-                    <div class="slider" id="slider">
-                        <img src="screenshot/slide1.jpg" alt="Screen 1">
-                        <img src="screenshot/slide2.jpg" alt="Screen 2">
-                        <img src="screenshot/slide3.jpg" alt="Screen 3">
-                        <img src="screenshot/slide4.jpg" alt="Screen 4">
-                        <img src="screenshot/slide5.jpg" alt="Screen 5">
-                        <img src="screenshot/slide6.jpg" alt="Screen 6">
-                        <img src="screenshot/slide7.jpg" alt="Screen 7">
-                        <img src="screenshot/slide8.jpg" alt="Screen 8">
-                    </div>
-                </div>
+        <div class="showcase" aria-label="استعراض شاشات تطبيق ذاكر">
+          <div class="floating-card float-right card-one"><span>📚</span> كتب وامتحانات</div>
+          <div class="floating-card float-right card-two"><span>🗓️</span> جداول مذاكرة</div>
+          <div class="floating-card float-left card-three"><span>✍️</span> دروس وملخصات</div>
+          <div class="floating-card float-left card-four"><span>🎯</span> اختبارات تفاعلية</div>
+          <div class="phone-container">
+            <img src="Images/iphone_frame.png" class="phone-frame" alt="إطار الهاتف" onerror="this.style.display='none'">
+            <div class="screen">
+              <div class="slider" id="slider">
+                <img src="screenshot/slide1.jpg" alt="واجهة تطبيق ذاكر - الشاشة الأولى">
+                <img src="screenshot/slide2.jpg" alt="واجهة تطبيق ذاكر - الشاشة الثانية">
+                <img src="screenshot/slide3.jpg" alt="واجهة تطبيق ذاكر - الشاشة الثالثة">
+                <img src="screenshot/slide4.jpg" alt="واجهة تطبيق ذاكر - الشاشة الرابعة">
+                <img src="screenshot/slide5.jpg" alt="واجهة تطبيق ذاكر - الشاشة الخامسة">
+                <img src="screenshot/slide6.jpg" alt="واجهة تطبيق ذاكر - الشاشة السادسة">
+                <img src="screenshot/slide7.jpg" alt="واجهة تطبيق ذاكر - الشاشة السابعة">
+                <img src="screenshot/slide8.jpg" alt="واجهة تطبيق ذاكر - الشاشة الثامنة">
+              </div>
             </div>
+          </div>
         </div>
+        <a href="#final-download" class="hero-cta">يلا نبدأ المذاكرة <span aria-hidden="true">←</span></a>
+      </div>
     </section>
 
     <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>ليه تختار تطبيق ذاكر؟</h2>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="icon">📅</span>
-                    <h3>تنظيم الجداول</h3>
-                    <p>مع ذاكر عندك إمكانية إنشاء جدول للحصص المدرسية وجدول ذكي للمذاكرة مع خاصية التحكم الكامل والتنبيه.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">📚</span>
-                    <h3>الكتب والامتحانات</h3>
-                    <p>حتحصل على كل كتب المقرر والامتحانات السابقة والملخصات الذكية في مكان واحد وبأسهل طريقة.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">📊</span>
-                    <h3>متابعة الأداء</h3>
-                    <p>رسوم بيانية توضح مدى تقدمك في كل مادة دراسية.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">📝</span>
-                    <h3>اختبارات تفاعلية</h3>
-                    <p>مع مكتبة اختبارات تفاعلية تحوي أكثر من 15,000 سؤال، ما في سؤال ما حيمر عليك.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">📶</span>
-                    <h3>دعم كامل للأوفلاين</h3>
-                    <p>ما تشيل هم لمشاكل الشبكة، ركز في دراستك بالاستفادة من كل المميزات دي أوفلاين بشكل كامل.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <span class="section-kicker">كل احتياجات مذاكرتك في مكان واحد</span>
+          <h2>ليه تختار تطبيق ذاكر؟</h2>
+          <p class="section-intro">يلا بينا نوريك تطبيق ذاكر فيهو شنو، وحيقدّم ليك شنو!</p>
         </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <span class="icon">🗓️</span><h3>جدول مذاكرة ذكي</h3>
+            <p>مع ذاكر، ابدأ نظّم جدول وأوقات مذاكرتك. من قسم جدول المذاكرة اختار جدول جاهز من المتجر وعدّل عليه، أو صمّم جدول جديد من الصفر. ولمن يجي وقت المذاكرة، التطبيق حينبّهك ويظهر ليك المادة والدرس الحتقراه. وكمان بتقدر تطبع جدولك وتعلّقو في غرفتك أو مكان دراستك بكل سهولة.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">📚</span><h3>الكتب والامتحانات</h3>
+            <p>في التطبيق حتلقى كتب المنهج السوداني، ومعاها مجموعة كبيرة من الامتحانات السابقة وحلولها النموذجية، عشان تراجع وتتمرّن وتستعد لامتحاناتك.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">🎧</span><h3>الدروس والملخصات</h3>
+            <p>حتلقى دروس وملخصات لكل المواد والدروس، مرتبة ومجهزة بتنسيق واضح وساهل للقراءة، ومعاها ملفات صوتية. وفي نهاية كل درس حتلقى خيار تفاعلي يساعدك تتأكد من فهمك.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">🎯</span><h3>الاختبارات التفاعلية</h3>
+            <p>عندك مجموعة كبيرة من الاختبارات التفاعلية المرتبة حسب الأبواب، تقدر تختبر نفسك بيها في أي وقت وتراجع مستواك أول بأول.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">🏫</span><h3>قسم الجداول</h3>
+            <p>سجّل جدولك المدرسي وخليهو قريب منك في التطبيق، عشان تعرف حصصك وموادك وترتّب يومك بسهولة.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">📝</span><h3>قسم الملاحظات</h3>
+            <p>اكتب أي ملاحظة دراسية واحتفظ بيها مرتبة حسب المواد، في شكل منسّق وجميل وساهل ترجع ليهو وقت ما تحتاج.</p>
+          </article>
+          <article class="feature-card feature-card-wide">
+            <span class="icon">🏆</span><h3>قسم المسابقة</h3>
+            <p>عندنا مسابقة مميزة، وكل فصل دراسي عندو منافستو بشكل منفصل. حتجمع نقاط كل مرة تكمل فيها مهمة مذاكرة، أو تنهي درس، أو تحل واجب، أو تنجح في اختبار تفاعلي. النتائج حتظهر كل يوم جمعة، والفائزين حيحصلوا على شهادات تقديرية واشتراكات مجانية.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits-section" id="benefits">
+      <div class="container">
+        <div class="section-title light-title">
+          <span class="section-kicker">أكتر من مجرد تطبيق للمذاكرة</span>
+          <h2>طيب دي أقسام التطبيق، يلا نتكلم عن المميزات</h2>
+        </div>
+        <div class="benefits-grid">
+          <article class="benefit-card"><span class="benefit-icon">📶</span><div><h3>أوفلاين بالكامل</h3><p>التطبيق بشتغل من غير نت بعد ما تحمّل المواد أول مرة. بس اتصل بالإنترنت في البداية عشان تحمّل محتويات الأقسام، وبعدها ذاكر في أي وقت حتى لو ما في شبكة.</p></div></article>
+          <article class="benefit-card"><span class="benefit-icon">⏰</span><div><h3>تنبيه فوري</h3><p>أول ما يجي وقت المذاكرة المحدد في جدولك، التطبيق حينبّهك عشان ما تنسى موعدك وتواصل خطتك الدراسية.</p></div></article>
+          <article class="benefit-card"><span class="benefit-icon">📈</span><div><h3>نتائج وشهادات أسبوعية</h3><p>كل أسبوع حتحصل على ملخص لأدائك الدراسي خلال الأسبوع. ولو أحرزت المركز الأول في المسابقة، حتكون عندك شهادة تقديرية مميزة.</p></div></article>
+          <article class="benefit-card"><span class="benefit-icon">🤝</span><div><h3>بيئة منافسة واجتهاد</h3><p>التطبيق والمسابقة بيوفّروا للطلاب جو من المنافسة والتحدي الإيجابي، وبيشجّعوهم على الاجتهاد والاستمرار في المذاكرة.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="container faq-container">
+        <div class="section-title">
+          <span class="section-kicker">نحن معاك خطوة بخطوة</span>
+          <h2>أسئلة شائعة</h2>
+          <p class="section-intro">واجهتك مشكلة؟ شوف الإجابات دي، ولو لسه محتاج مساعدة راسلنا.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>كيف أحمل وأثبّت تطبيق ذاكر؟</summary>
+            <p>اضغط على زر التحميل في أسفل الصفحة وانتظر لحدي ما يكتمل التحميل. حتلقى ملف بامتداد <bdi>APK</bdi> في إشعارات التحميل أو في مجلد التنزيلات. اضغط عليه واتبع التعليمات الظاهرة في الشاشة عشان تثبّت التطبيق، وبعدها حتلقى ذاكر مع بقية تطبيقاتك.</p>
+          </details>
+          <details class="faq-item">
+            <summary>التطبيق ما راضي يتثبّت، أعمل شنو؟</summary>
+            <p>أول حاجة، اتأكد إنك حمّلت ملف التطبيق من رابط ذاكر الرسمي وإن التحميل اكتمل. لو ظهرت رسالة من نظام حماية Google Play، راجع تفاصيل التحذير قبل المتابعة وما تتجاوزو إلا لو متأكد من مصدر الملف. ممكن تختلف خطوات التثبيت حسب نوع جهازك وإصدار أندرويد. لو المشكلة استمرت، راسلنا في واتساب وحنساعدك.</p>
+          </details>
+        </div>
+        <div class="support-box">
+          <div class="support-symbol">💬</div>
+          <div class="support-copy"><h3>لسه عندك مشكلة؟</h3><p>لو واجهتكم أي مشاكل تانية، راسلونا مباشرة على واتساب وحنساعدكم بإذن الله.</p></div>
+          <a class="whatsapp-btn" href="https://wa.me/249920702900" target="_blank" rel="noopener noreferrer">تواصل معانا في واتساب <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
     </section>
 
     <section id="final-download" class="download-section">
-        <div class="container text-center">
-            <h2>جاهز للبدء في رحلة النجاح؟</h2>
-            <p>حمل تطبيق ذاكر ،  وابدأ المذاكرة</p>
-            <div class="download-box">
-                <a href="https://github.com/breakstor/zakir/releases/download/v1.3.0/zakir.1.3.0.apk" class="btn-download-big">
-                    <span class="main-text">اضغط لتحميل التطبيق</span>
-                </a>
-            </div>
-        </div>
+      <div class="download-glow"></div>
+      <div class="container text-center download-content">
+        <span class="download-badge">جاهز تبدأ؟</span>
+        <h2>يلا خلّي ذاكر رفيقك في رحلة المذاكرة</h2>
+        <p>حمّل التطبيق، رتّب مذاكرتك، وخلي خطوتك الجاية أقرب لهدفك.</p>
+        <a href="https://github.com/breakstor/zakir/releases/download/v1.3.0/zakir.1.3.0.apk" class="btn-download-big">
+          <span class="download-arrow" aria-hidden="true">↓</span>
+          <span class="main-text">حمّل تطبيق ذاكر الآن</span>
+          <span class="sub-text">لأجهزة أندرويد · ملف APK</span>
+        </a>
+        <p class="download-hint">بعد التحميل، افتح الملف واتبع خطوات التثبيت الظاهرة في جهازك.</p>
+      </div>
     </section>
+  </main>
 
-    <footer class="footer">
-        <p>جميع الحقوق محفوظة © تطبيق ذاكر 2026</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <footer class="footer"><p>جميع الحقوق محفوظة © تطبيق ذاكر 2026</p><a href="#top">الرجوع للأعلى ↑</a></footer>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
