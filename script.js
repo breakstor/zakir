@@ -33,6 +33,7 @@
   const errorBox = document.getElementById('deleteFormError');
   const readyBox = document.getElementById('deleteRequestReady');
   const previewEl = document.getElementById('deleteRequestPreview');
+  const emailLink = document.getElementById('sendDeleteEmail');
   const whatsappLink = document.getElementById('sendDeleteWhatsapp');
   const copyBtn = document.getElementById('copyRequestBtn');
 
@@ -90,6 +91,10 @@
     ].join('\n');
 
     previewEl.textContent = generatedMessage;
+    if (emailLink) {
+      const subject = `طلب حذف حساب تطبيق ذاكر - ${email}`;
+      emailLink.href = `mailto:zakireducationapp@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(generatedMessage)}`;
+    }
     whatsappLink.href = `https://wa.me/249920702900?text=${encodeURIComponent(generatedMessage)}`;
     readyBox.classList.add('is-visible');
     readyBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
