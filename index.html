@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#d93f43">
   <meta name="description" content="ذاكر رفيقك في رحلة المذاكرة. كتب المنهج السوداني، امتحانات سابقة، دروس وملخصات، اختبارات تفاعلية وجدول مذاكرة ذكي.">
   <title>تطبيق ذاكر | رفيقك في رحلة المذاكرة</title>
+  <link rel="canonical" href="https://zakir-sd.com/">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,34 +27,45 @@
 
   <main id="top">
     <section class="hero">
-      <div class="container text-center">
-        <span class="eyebrow"><span class="eyebrow-dot"></span> رفيق الطالب السوداني</span>
-        <h1>تطبيق <span>ذاكر</span></h1>
-        <p class="hero-desc">أي طالب محتاج رفيق في رحلة المذاكرة،<br class="desktop-break"> وذاكر حيكون رفيقك خطوة بخطوة.</p>
-        <div class="hero-note"><span aria-hidden="true">🇸🇩</span> مذاكرتك بترتيب، ومنهجك قريب منك وين ما كنت</div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> رفيق الطالب السوداني في كل مرحلة</span>
+          <h1>تطبيق <span>ذاكر</span> —<br>نظام متكامل<br><span>لمذاكرتك وتفوقك</span></h1>
+          <p class="hero-desc">أي طالب محتاج رفيق في رحلة المذاكرة، وذاكر حيكون رفيقك خطوة بخطوة. كتب المنهج السوداني، امتحانات سابقة، دروس وملخصات صوتية، اختبارات تفاعلية وجدول مذاكرة ذكي في مكان واحد.</p>
+          <div class="hero-actions">
+            <a href="#final-download" class="btn-hero-solid">تحميل التطبيق <span aria-hidden="true">↓</span></a>
+            <a href="#features" class="btn-hero-outline">استعراض المميزات</a>
+          </div>
+          <div class="hero-checks">
+            <span><b aria-hidden="true">✓</b> يعمل أوفلاين بالكامل</span>
+            <span><b aria-hidden="true">✓</b> تنبيهات ذكية لمواعيد المذاكرة</span>
+            <span><b aria-hidden="true">✓</b> اختبارات ومسابقات أسبوعية</span>
+          </div>
+        </div>
 
         <div class="showcase" aria-label="استعراض شاشات تطبيق ذاكر">
-          <div class="floating-card float-right card-one"><span>📚</span><span class="card-label">كتب<br>وامتحانات</span></div>
-          <div class="floating-card float-right card-two"><span>🗓️</span><span class="card-label">جداول<br>مذاكرة</span></div>
-          <div class="floating-card float-left card-three"><span>✍️</span><span class="card-label">دروس<br>وملخصات</span></div>
-          <div class="floating-card float-left card-four"><span>🎯</span><span class="card-label">اختبارات<br>تفاعلية</span></div>
-          <div class="phone-container">
-            <img src="Images/iphone_frame.png" class="phone-frame" alt="إطار الهاتف" onerror="this.style.display='none'">
-            <div class="screen">
-              <div class="slider" id="slider">
-                <img src="screenshot/slide1.jpg" alt="واجهة تطبيق ذاكر - الشاشة الأولى">
-                <img src="screenshot/slide2.jpg" alt="واجهة تطبيق ذاكر - الشاشة الثانية">
-                <img src="screenshot/slide3.jpg" alt="واجهة تطبيق ذاكر - الشاشة الثالثة">
-                <img src="screenshot/slide4.jpg" alt="واجهة تطبيق ذاكر - الشاشة الرابعة">
-                <img src="screenshot/slide5.jpg" alt="واجهة تطبيق ذاكر - الشاشة الخامسة">
-                <img src="screenshot/slide6.jpg" alt="واجهة تطبيق ذاكر - الشاشة السادسة">
-                <img src="screenshot/slide7.jpg" alt="واجهة تطبيق ذاكر - الشاشة السابعة">
-                <img src="screenshot/slide8.jpg" alt="واجهة تطبيق ذاكر - الشاشة الثامنة">
+          <div class="showcase-stage">
+            <div class="floating-card card-one"><span class="card-badge">📚</span><span class="card-label">كتب وامتحانات</span></div>
+            <div class="floating-card card-two"><span class="card-badge">🗓️</span><span class="card-label">جداول مذاكرة</span></div>
+            <div class="floating-card card-three"><span class="card-badge">✍️</span><span class="card-label">دروس وملخصات</span></div>
+            <div class="floating-card card-four"><span class="card-badge">🎯</span><span class="card-label">اختبارات تفاعلية</span></div>
+            <div class="phone-container">
+              <img src="Images/iphone_frame.png" class="phone-frame" alt="إطار الهاتف" onerror="this.style.display='none'">
+              <div class="screen">
+                <div class="slider" id="slider">
+                  <img src="screenshot/slide1.jpg" alt="واجهة تطبيق ذاكر - الشاشة الأولى">
+                  <img src="screenshot/slide2.jpg" alt="واجهة تطبيق ذاكر - الشاشة الثانية">
+                  <img src="screenshot/slide3.jpg" alt="واجهة تطبيق ذاكر - الشاشة الثالثة">
+                  <img src="screenshot/slide4.jpg" alt="واجهة تطبيق ذاكر - الشاشة الرابعة">
+                  <img src="screenshot/slide5.jpg" alt="واجهة تطبيق ذاكر - الشاشة الخامسة">
+                  <img src="screenshot/slide6.jpg" alt="واجهة تطبيق ذاكر - الشاشة السادسة">
+                  <img src="screenshot/slide7.jpg" alt="واجهة تطبيق ذاكر - الشاشة السابعة">
+                  <img src="screenshot/slide8.jpg" alt="واجهة تطبيق ذاكر - الشاشة الثامنة">
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <a href="#final-download" class="hero-cta">يلا نبدأ المذاكرة <span aria-hidden="true">←</span></a>
       </div>
     </section>
 
