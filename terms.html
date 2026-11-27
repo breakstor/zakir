@@ -382,32 +382,39 @@
     .footer {
       background: #0b1224;
       color: #aab4c5;
-      padding: 30px 20px;
+      padding: 32px 20px;
       font-size: 0.92rem;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .footer-flex {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .footer a {
-      color: #ffffff;
-      font-weight: 700;
-    }
-
-    .footer a:hover {
-      color: #f4a340;
+      gap: 12px;
+      text-align: center;
     }
 
     .footer-links {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 16px;
+      gap: 10px 22px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #e2e8f0;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #f29b9d;
+    }
+
+    .footer-copy {
+      color: #94a3b8;
+      font-size: 0.86rem;
     }
 
     /* استجابة الشاشات */
@@ -682,14 +689,16 @@
 
   <!-- الفوتر -->
   <footer class="footer">
-    <div class="container footer-flex">
-      <p>جميع الحقوق محفوظة © تطبيق ذاكر 2026</p>
-      <div class="footer-links">
-        <a href="index.html">الصفحة الرئيسية</a>
-        <span>•</span>
-        <a href="#top">الرجوع للأعلى ↑</a>
-      </div>
+    <div class="footer-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="terms.html">شروط الاستخدام</a>
+      <a href="privacy-policy.html">سياسة الخصوصية</a>
+      <a href="delete-account.html">حذف الحساب</a>
+      <a href="mailto:zakireducationapp@gmail.com">البريد الرسمي</a>
+      <a href="https://wa.me/249920702900" target="_blank" rel="noopener noreferrer">واتساب الدعم</a>
+      <a href="#top">الرجوع للأعلى ↑</a>
     </div>
+    <p class="footer-copy">جميع الحقوق محفوظة © تطبيق ذاكر 2026</p>
   </footer>
 
 </body>
