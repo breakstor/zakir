@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#d94347">
+  <meta name="description" content="شروط وأحكام استخدام تطبيق ذاكر التعليمي - رفيق الطالب في رحلة المذاكرة.">
+  <title>شروط الاستخدام | تطبيق ذاكر</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #d94347;
+      --primary-dark: #b92e35;
+      --primary-light: #fff5f3;
+      --navy: #111a31;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #e9eaf0;
+      --card-bg: #ffffff;
+      --bg-page: #f8f9fc;
+      --font: 'Tajawal', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--ink);
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    .container {
+      width: min(920px, 100% - 36px);
+      margin-inline: auto;
+    }
+
+    /* الهيدر */
+    .main-header {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(20, 30, 50, 0.08);
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #f4a340;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      background: #f1f3f7;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid #e2e5eb;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: #e6e9f0;
+      color: var(--primary);
+    }
+
+    /* رأس الصفحة Hero */
+    .page-hero {
+      padding: 50px 0 35px;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, #ffece9 0%, #fff6f4 50%, var(--bg-page) 100%);
+      border-bottom: 1px solid #f0e6e4;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #fff;
+      color: var(--primary);
+      border: 1px solid #f6cfcb;
+      padding: 5px 15px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .page-title {
+      font-size: clamp(2rem, 5vw, 2.9rem);
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .page-subtitle {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 16px;
+      font-weight: 500;
+    }
+
+    .meta-info {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      padding: 6px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-size: 0.88rem;
+      color: #555f75;
+      font-weight: 600;
+    }
+
+    /* المحتوى الرئيسي */
+    .content-wrapper {
+      padding: 40px 0 80px;
+    }
+
+    /* صندوق الفهرس السريع */
+    .toc-box {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 20px rgba(17, 26, 49, 0.03);
+    }
+
+    .toc-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 10px;
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: #f9fafc;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      color: var(--ink);
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .toc-link:hover {
+      background: var(--primary-light);
+      border-color: #ffd8d3;
+      color: var(--primary);
+      transform: translateX(-3px);
+    }
+
+    .toc-num {
+      width: 22px;
+      height: 22px;
+      background: #eef1f6;
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    /* بنية الأقسام */
+    .terms-section {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(17, 26, 49, 0.03);
+      transition: border-color 0.2s;
+    }
+
+    .terms-section:target {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(217, 67, 71, 0.15);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f2f3f7;
+    }
+
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--primary-light);
+      border: 1px solid #ffdcd7;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .section-header h2 {
+      font-size: 1.32rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .section-body {
+      font-size: 1.02rem;
+      color: #475467;
+      line-height: 1.9;
+    }
+
+    .section-body p {
+      margin-bottom: 14px;
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-body ul {
+      list-style: none;
+      padding-right: 0;
+      margin: 14px 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .section-body li {
+      position: relative;
+      padding-right: 28px;
+    }
+
+    .section-body li::before {
+      content: "✔";
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 0.95rem;
+    }
+
+    /* تنبيه أو ملاحظة خاصة */
+    .callout-box {
+      background: #fff9f6;
+      border-right: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      color: #63332d;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .callout-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    /* صندوق التواصل السريع */
+    .support-card {
+      background: linear-gradient(135deg, #111a31, #1e2c4f);
+      color: #fff;
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+      margin-top: 40px;
+      box-shadow: 0 10px 30px rgba(17, 26, 49, 0.15);
+    }
+
+    .support-card h3 {
+      font-size: 1.45rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .support-card p {
+      color: #c4cede;
+      font-size: 1.02rem;
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #168b55;
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      box-shadow: 0 8px 20px rgba(22, 139, 85, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background: #127446;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* الفوتر */
+    .footer {
+      background: #0b1224;
+      color: #aab4c5;
+      padding: 30px 20px;
+      font-size: 0.92rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer a {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .footer a:hover {
+      color: #f4a340;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* استجابة الشاشات */
+    @media (max-width: 768px) {
+      .page-hero {
+        padding: 38px 0 25px;
+      }
+      .terms-section {
+        padding: 22px;
+        border-radius: 16px;
+      }
+      .toc-box {
+        padding: 18px;
+      }
+      .toc-grid {
+        grid-template-columns: 1fr;
+      }
+      .section-header h2 {
+        font-size: 1.18rem;
+      }
+      .footer-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- الهيدر العلوي -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <a class="logo" href="index.html" aria-label="ذاكر - الرئيسية">ذاكر<span> .</span></a>
+      <a href="index.html" class="back-btn">
+        <span aria-hidden="true">→</span>
+        العودة للرئيسية
+      </a>
+    </div>
+  </header>
+
+  <!-- رأس الصفحة -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        اتفاقية الاستخدام الرسمية
+      </div>
+      <h1 class="page-title">شروط وأحكام الاستخدام</h1>
+      <p class="page-subtitle">يرجى قراءة هذه الشروط بعناية قبل استخدام تطبيق ذاكر والخدمات التعليمية التابعة له</p>
+      <div class="meta-info">
+        <span>📅 تاريخ السريان: نوفمبر 2026</span>
+        <span>•</span>
+        <span>نسخة الإصدار: 1.3.5</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="content-wrapper">
+    <div class="container">
+
+      <!-- فهرس المحتويات السريع -->
+      <nav class="toc-box" aria-label="فهرس شروط الاستخدام">
+        <div class="toc-title">
+          <span>📑</span>
+          فهرس البنود السريع:
+        </div>
+        <div class="toc-grid">
+          <a class="toc-link" href="#acceptance"><span class="toc-num">1</span> قبول الشروط والتعريفات</a>
+          <a class="toc-link" href="#services"><span class="toc-num">2</span> طبيعة الخدمات التعليمية</a>
+          <a class="toc-link" href="#accounts"><span class="toc-num">3</span> حساب المستخدم والأمان</a>
+          <a class="toc-link" href="#acceptable-use"><span class="toc-num">4</span> سياسة الاستخدام المقبول</a>
+          <a class="toc-link" href="#ip"><span class="toc-num">5</span> الملكية الفكرية للمحتوى</a>
+          <a class="toc-link" href="#contests"><span class="toc-num">6</span> نظام المسابقات والنقاط</a>
+          <a class="toc-link" href="#offline"><span class="toc-num">7</span> التخزين والعمل أوفلاين</a>
+          <a class="toc-link" href="#liability"><span class="toc-num">8</span> إخلاء المسؤولية وحدودها</a>
+          <a class="toc-link" href="#modifications"><span class="toc-num">9</span> تعديل الشروط والخدمة</a>
+          <a class="toc-link" href="#contact"><span class="toc-num">10</span> الدعم الفني والتواصل</a>
+        </div>
+      </nav>
+
+      <!-- بند 1 -->
+      <article class="terms-section" id="acceptance">
+        <div class="section-header">
+          <div class="section-icon">📜</div>
+          <h2>1. قبول الشروط والتعريفات</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            أهلاً بك في <strong>تطبيق ذاكر</strong> ("التطبيق"، "نحن"، "الخدمة"). يمثل استخدامك لهذا التطبيق أو تنزيله أو تثبيته على جهازك موافقة صريحة وكاملة منك على الالتزام بجميع بنود هذه الشروط والأحكام.
+          </p>
+          <p>
+            إذا كنت لا توافق على أي جزء من هذه الشروط، يرجى التوقف فوراً عن استخدام التطبيق وإلغاء تثبيته من جهازك. يُقصد بـ "المستخدم" أي شخص (طالب، ولي أمر، أو معلم) يقوم بتنزيل التطبيق أو الاستفادة من أي من ميزاته.
+          </p>
+        </div>
+      </article>
+
+      <!-- بند 2 -->
+      <article class="terms-section" id="services">
+        <div class="section-header">
+          <div class="section-icon">📚</div>
+          <h2>2. طبيعة الخدمات التعليمية</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            تطبيق ذاكر هو منصة تعليمية مساندة مصممة خصيصاً لمساعدة الطلاب في مسيرتهم الدراسية وتنظيم أوقاتهم، ويشمل ذلك:
+          </p>
+          <ul>
+            <li>توفير كتب المنهج الدراسي السوداني والامتحانات السابقة ونماذج الحلول للمراجعة والاستذكار.</li>
+            <li>توفير ملخصات ودروس مكتوبة وتسجيلات صوتية مساعدة.</li>
+            <li>أدوات تنظيم الوقت وجداول المذاكرة الذكية وجداول الحصص المدرسية.</li>
+            <li>اختبارات تفاعلية ومسابقات دورية لتقييم المستوى الدراسي وبث روح التنافس الإيجابي.</li>
+            <li>قسم لتدوين الملاحظات الدراسية وحفظها.</li>
+          </ul>
+          <div class="callout-box">
+            <span class="callout-icon">💡</span>
+            <div>
+              <strong>ملاحظة هامة:</strong> المحتوى المقدم في التطبيق هو وسيلة تعليمية مساعدة ولا يُغني عن المناهج والتعليم المدرسي الرسمي المقر من وزارة التربية والتعليم، ونبذل وسعنا لمطابقة المحتوى مع أحدث المقررات الرسمية.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- بند 3 -->
+      <article class="terms-section" id="accounts">
+        <div class="section-header">
+          <div class="section-icon">👤</div>
+          <h2>3. حساب المستخدم والأمان</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            قد تتطلب بعض ميزات التطبيق (مثل المشاركة في المسابقات وحفظ السجلات ومزامنة الجداول) إنشاء حساب أو تسجيل بيانات أساسية:
+          </p>
+          <ul>
+            <li>يلتزم المستخدم بتقديم معلومات صحيحة ودقيقة (مثل الاسم والمرحلة الدراسية) عند التسجيل.</li>
+            <li>يتحمل المستخدم المسؤولية الكاملة عن الحفاظ على سرية بيانات حسابه أو جهازه الذي يحتوي على التطبيق.</li>
+            <li>يحق لإدارة التطبيق إيقاف أو إلغاء أي حساب ينتحل شخصية أخرى أو يقدم بيانات مضللة في لوحة الشرف أو المسابقات.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- بند 4 -->
+      <article class="terms-section" id="acceptable-use">
+        <div class="section-header">
+          <div class="section-icon">⚖️</div>
+          <h2>4. سياسة الاستخدام المقبول</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            يوافق المستخدم على استخدام تطبيق ذاكر في الأغراض التعليمية والشخصية المشروعة فقط، ويُحظر بشكل قاطع القيام بأي مما يلي:
+          </p>
+          <ul>
+            <li>محاولة اختراق أو تفكيك أو إجراء هندسة عكسية (Reverse Engineering) لكود التطبيق أو برمجياته.</li>
+            <li>استخدام أي وسائل أو أدوات غير قانونية أو برمجيات آلية (Bots) للغش في الاختبارات التفاعلية أو تجميع النقاط بطريقة غير عادلة.</li>
+            <li>إعادة بيع، توزيع، أو استغلال المحتوى الرقمي المتاح في التطبيق تجارياً دون إذن مسبق ومكتوب.</li>
+            <li>محاولة تعطيل خوادم الخدمة أو إرسال طلبات متكررة تؤثر سلباً على أداء التطبيق لبقية الطلاب.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- بند 5 -->
+      <article class="terms-section" id="ip">
+        <div class="section-header">
+          <div class="section-icon">🛡️</div>
+          <h2>5. حقوق الملكية الفكرية</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            جميع حقوق الملكية الفكرية الخاصة بتطبيق ذاكر—بما في ذلك التصاميم، الواجهات، البرمجيات، الشعار والهوية البصرية، التسجيلات الصوتية والملخصات الحصرية التي يعدها فريق العمل—هي ملك حصري لتطبيق <strong>ذاكر</strong> وتخضع لقوانين حماية الملكية الفكرية وحقوق النشر.
+          </p>
+          <p>
+            الكتب المدرسية والامتحانات الرسمية تعود حقوقها لجهات النشر الرسمية ووزارة التربية والتعليم، ويتم إتاحتها داخل التطبيق للأغراض التعليمية غير التجارية ولتيسير وصول الطلاب إليها في ظل الظروف المختلفة.
+          </p>
+        </div>
+      </article>
+
+      <!-- بند 6 -->
+      <article class="terms-section" id="contests">
+        <div class="section-header">
+          <div class="section-icon">🏆</div>
+          <h2>6. نظام المسابقات، النقاط، والمكافآت التقديرية</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            يشتمل التطبيق على قسم مسابقات تنافسية بين الطلاب، وتخضع للشروط التالية:
+          </p>
+          <ul>
+            <li>يتم احتساب النقاط بناءً على إنهاء المهام الدراسية، اجتياز الاختبارات التفاعلية، وإكمال الملخصات وفق الخوارزميات المعتمدة داخل التطبيق.</li>
+            <li>تُعلن النتائج أسبوعياً (يوم الجمعة) وتُمنح الشهادات التقديرية والاشتراكات المجانية للفائزين وفق معايير الجدية والنزاهة.</li>
+            <li>تحتفظ إدارة التطبيق بالحق في مراجعة النتائج واستبعاد أي طالب يثبت تلاعبه في توقيت المهام أو نتائج الاختبارات، وذلك حرصاً على تكافؤ الفرص.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- بند 7 -->
+      <article class="terms-section" id="offline">
+        <div class="section-header">
+          <div class="section-icon">📶</div>
+          <h2>7. ميزة العمل دون إنترنت (أوفلاين) وتحديث البيانات</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            يوفر تطبيق ذاكر إمكانية العمل دون اتصال بالإنترنت بعد تحميل محتويات المواد والدروس للمرة الأولى، ويقر المستخدم بما يلي:
+          </p>
+          <ul>
+            <li>يلزم توفر اتصال بالإنترنت في المرة الأولى لتنزيل محتويات الأقسام والملفات الصوتية ونماذج الامتحانات.</li>
+            <li>مزامنة النقاط ولوحة شرف المسابقات تتطلب اتصالاً بالإنترنت لتحديث البيانات مع الخادم.</li>
+            <li>يتحمل المستخدم مسؤولية توفير مساحة تخزين كافية على جهازه لتحميل الملفات التعليمية.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- بند 8 -->
+      <article class="terms-section" id="liability">
+        <div class="section-header">
+          <div class="section-icon">⚠️</div>
+          <h2>8. إخلاء المسؤولية وحدود الضمان</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            يُقدّم تطبيق ذاكر "كما هو" (As-Is) وبأعلى درجات الجودة الممكنة، ونبذل أقصى جهد لضمان دقة المحتوى والدروس. ومع ذلك:
+          </p>
+          <ul>
+            <li>لا نتحمل أي مسؤولية قانونية عن أي أخطاء مطبعية غير مقصودة قد ترد في بعض الملخصات، ويُرحب دوماً بملاحظات الطلاب والمعلمين لتصويبها فوراً.</li>
+            <li>لا نضمن عدم انقطاع الخدمة بشكل كامل في أوقات الصيانة الدورية أو الظروف التقنية الخارجة عن إرادتنا.</li>
+            <li>لا يتحمل التطبيق أي مسؤولية عن فقدان البيانات أو الجداول نتيجة مسح ذاكرة الجهاز أو استخدام إصدارات معدلة من التطبيق غير الرسمية.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- بند 9 -->
+      <article class="terms-section" id="modifications">
+        <div class="section-header">
+          <div class="section-icon">🔄</div>
+          <h2>9. تعديل الشروط والخدمة</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            يحق لإدارة التطبيق تحديث أو تعديل هذه الشروط في أي وقت لمواكبة التحديثات التقنية أو التنظيمية. عند إجراء أي تعديل جوهري، سيتم تحديث تاريخ السريان في أعلى هذه الصفحة وإشعار المستخدمين عبر التطبيق إن أمكن.
+          </p>
+          <p>
+            استمرارك في استخدام التطبيق بعد نشر التعديلات يعد قبولاً صريحاً منك بالشروط المحدثة.
+          </p>
+        </div>
+      </article>
+
+      <!-- بند 10 -->
+      <article class="terms-section" id="contact">
+        <div class="section-header">
+          <div class="section-icon">📞</div>
+          <h2>10. الدعم الفني والتواصل</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            فريق ذاكر حريص دائماً على مساندتكم والاستماع لاقتراحاتكم واستفساراتكم حول هذه الشروط أو حول استخدام التطبيق.
+          </p>
+          
+          <div class="support-card">
+            <h3>فريق ذاكر دائماً في خدمتك</h3>
+            <p>إذا كانت لديك أي استفسارات أو ملاحظات بشأن شروط الاستخدام أو واجهتك أي مشكلة، تواصل معنا مباشرة عبر واتساب:</p>
+            <a class="whatsapp-btn" href="https://wa.me/249920702900" target="_blank" rel="noopener noreferrer">
+              <span>💬</span>
+              تواصل معنا عبر واتساب: 249920702900+
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- الفوتر -->
+  <footer class="footer">
+    <div class="container footer-flex">
+      <p>جميع الحقوق محفوظة © تطبيق ذاكر 2026</p>
+      <div class="footer-links">
+        <a href="index.html">الصفحة الرئيسية</a>
+        <span>•</span>
+        <a href="#top">الرجوع للأعلى ↑</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
